@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+include 'php/router.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,8 +13,8 @@ session_start();
     <title>Storybound Books</title>
   </head>
   <body>
-  <iframe src="view/headClient.html" style="width: 100%;"></iframe>
-
+  <iframe src="view/headClient.php" style="width: 100%;"></iframe>
+  
     <main>
       <section class="pt-6">
         <div class="container">
@@ -80,7 +82,7 @@ session_start();
                   <div class="carousel-inner">
                     <div class="carousel-item active">
                       <img
-                        src="https://via.placeholder.com/1920x960.png/f4f6fa/dce2ef"
+                        src="img/93RRbiTAaI.jpg"
                         class="img-fluid"
                         alt="..."
                         width="1920"
@@ -90,6 +92,26 @@ session_start();
                     </div>
                     <div class="carousel-item">
                       <img
+                        src="img/BfGuQJpDolQ.jpg"
+                        class=""
+                        alt="..."
+                        width="1920"
+                        height="960"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="carousel-item">
+                      <img
+                        src="img/bWdVjVjFZU0.jpg"
+                        class=""
+                        alt="..."
+                        width="1920"
+                        height="960"
+                        loading="lazy"
+                      />
+                    </div>
+                    <!-- <div class="carousel-item">
+                      <img
                         src="https://via.placeholder.com/1920x960.png/dce2ef/f4f6fa"
                         class=""
                         alt="..."
@@ -107,27 +129,7 @@ session_start();
                         height="960"
                         loading="lazy"
                       />
-                    </div>
-                    <div class="carousel-item">
-                      <img
-                        src="https://via.placeholder.com/1920x960.png/dce2ef/f4f6fa"
-                        class=""
-                        alt="..."
-                        width="1920"
-                        height="960"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div class="carousel-item">
-                      <img
-                        src="https://via.placeholder.com/1920x960.png/f4f6fa/dce2ef"
-                        class=""
-                        alt="..."
-                        width="1920"
-                        height="960"
-                        loading="lazy"
-                      />
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>
