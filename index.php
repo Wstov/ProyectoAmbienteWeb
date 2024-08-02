@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-include 'php/router.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -217,5 +216,9 @@ include 'php/router.php';
     <iframe class="w-100" style="height: 491px;" src="view/footerClient.html"></iframe>
 
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/routes.js"></script>
+    <script src="js/index.js"></script>
+
   </body>
 </html>
