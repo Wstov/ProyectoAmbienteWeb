@@ -1,14 +1,14 @@
 const PATHS = {
-    home:{
-        path: "/",
-        template: ""
-    },
-    home:{
-        path: "/ingresar",
-        template: ""
-    },
-    home:{
-        path: "/registro",
-        template: ""
-    },
- }
+  home: {
+    path: "/",
+    template: "",
+  },
+  ingresar: {
+    path: "/ingresar",
+    template: "",
+  },
+  registro: {
+    path: "/registro",
+    template: "",
+  },
+};
