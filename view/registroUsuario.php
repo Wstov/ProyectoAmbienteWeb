@@ -77,7 +77,7 @@ session_start();
     <div class="p-5 lc-block shadow rounded-3 col-xl-10 offset-xl-1">
         <h3 class="card-title text-center mb-5 font-weight-bold fs-3">Regístrate llenando los siguientes espacios:</h3>
 
-        <form class="form-horizontal" id="formulario" method="POST" action="../php/insert.php" enctype="multipart/form-data">
+        <form class="form-horizontal" id="formulario" method="POST" action="../php/registroUser.php" enctype="multipart/form-data">
 
             <div class="form-group mb-4">
                 <label for="Nombre">Nombre:</label>

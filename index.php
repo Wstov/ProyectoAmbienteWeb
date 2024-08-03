@@ -63,7 +63,7 @@ session_start();
               <!-- /lc_nav_menu -->
             </div>
             <div class="lc-block ms-auto d-grid gap-2 d-lg-block">
-              <a class="btn link-secondary" href="#" role="button" 
+              <a class="btn link-secondary" href="view/login.php" role="button" 
                 >Ingresar</a
               >
               <a class="btn btn-primary" href="view/registroUsuario.php"  role="button">Registrarse</a> <!-- < onclick="ROUTER.load('home')" -->

@@ -1,5 +1,3 @@
-
-
 <?php
 
 include("config.php");
@@ -21,16 +19,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Preparar la sentencia SQL para evitar inyecciones SQL
     if ($stmt = $conn->prepare("INSERT INTO usuarios (Nombre, Apellido, Email, Contrasena, RolID, Edad, Direccion, Telefono) VALUES (?, ?, ?, ?, ?, ?, ?, ?)")) {
         // Asignar el valor de $Rol a un ID, si es necesario
-        $rolID = 1; // Valor predeterminado para el rol "user" (deberás ajustarlo según tu esquema de roles)
+        $rolID = 1; 
 
         // Vincular parámetros
         $stmt->bind_param("ssssiiss", $nombre, $apellido, $email, $password, $rolID, $edad, $direccion, $telefono);
 
         // Ejecutar la sentencia
         if ($stmt->execute()) {
-            header("Location: ../index.php");
+            header("Location: ../view/user/indexUser.php");
+
+            exit();
         } else {
             header("Location: error.php");
+            exit();
         }
 
         // Cerrar la sentencia

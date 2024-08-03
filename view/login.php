@@ -1,9 +1,13 @@
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
     <title>Document</title>
   </head>
   <style>
@@ -21,13 +25,15 @@
     <div class="container">
       <div class="form-container">
         <h1>Bienvenid@s</h1>
-        <form action="#">
+
+        <form method="POST" action="../php/login.php" >
           <div class="input-group">
             <label for="username">Usuario</label>
             <input
               type="text"
               id="username"
               placeholder="Digite su usuario"
+              name="username"
               required
             />
           </div>
@@ -37,12 +43,13 @@
               type="password"
               id="password"
               placeholder="Digite su contraseña"
+              name="password"
               required
             />
           </div>
           <a href="#" class="forgot-password">He olvidadomi contraseña?</a
           ><br />
-          <button type="submit">LOGIN</button>
+          <button type="submit">Ingresar</button>
           <div class="social-login">
             <p>Nuetras Redes</p>
             <svg
@@ -84,14 +91,14 @@
           </div>
           <div class="signup-link">
             <p></p>
-            <button type="button">Iniciar Seccion</button>
+            <button type="button">Registrarse</button>
           </div>
         </form>
       </div>
     </div>
-    <script
+    <!-- <script
       src="https://kit.fontawesome.com/your-font-awesome-kit-id.js"
       crossorigin="anonymous"
-    ></script>
+    ></script> -->
   </body>
 </html>

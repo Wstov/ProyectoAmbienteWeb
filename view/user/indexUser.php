@@ -1,77 +1,77 @@
+
 <?php
 session_start();
-
+include("../../php/extraerUser.php");
+$username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
 ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
-    <!-- <link rel="stylesheet" href="css/styles.css" /> -->
-    <title>Storybound Books</title>
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../../css/cart.css">
+  <title>Storybound Books</title>
+</head>
+<body>
   <header>
-      <nav class="navbar navbar-expand-lg py-3 navbar-light">
-        <div class="container">
-          <a class="navbar-brand" href="#">
-            <img
-              src="img/storybound_books_logo_black.png"
-              width="130"
-              height="130a"
-              class="align-middle me-1 img-fluid"
-              alt="bookshop logo"
-            />
-          </a>
+    <nav class="navbar navbar-expand-lg py-3 navbar-light">
+      <div class="container">
+        <a class="navbar-brand" href="indexUser.php">
+          <img
+            src="../../img/storybound_books_logo_black.png"
+            width="130"
+            height="130"
+            class="align-middle me-1 img-fluid"
+            alt="bookshop logo"
+          />
+        </a>
 
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#myNavbar3"
-            aria-controls="myNavbar3"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#myNavbar3"
+          aria-controls="myNavbar3"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-          <div class="lc-block collapse navbar-collapse" id="myNavbar3">
-            <div lc-helper="shortcode" class="live-shortcode ms-auto">
-              <!--  lc_nav_menu -->
-              <ul id="menu-menu-1" class="navbar-nav">
-                <li
-                  class="menu-item menu-item-type-custom menu-item-object-custom nav-item nav-item-32739"
-                >
-                  <a
-                    href="#"
-                    class="nav-link"
-                    >BS5 Page Templates</a
-                  >
-                </li>
-                <li
-                  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home nav-item nav-item-32738"
-                >
-                  <a
-                    href="#"
-                    class="nav-link"
-                    >BS5 Snippets</a
-                  >
-                </li>
-              </ul>
-              <!-- /lc_nav_menu -->
-            </div>
-            <div class="lc-block ms-auto d-grid gap-2 d-lg-block">
-              <a class="btn link-secondary" href="#" role="button" 
-                >Ingresar</a
-              >
-              <a class="btn btn-primary" href="view/registroUsuario.php"  role="button">Registrarse</a> <!-- < onclick="ROUTER.load('home')" -->
-            </div>
+        <div class="collapse navbar-collapse" id="myNavbar3">
+          <ul id="menu-menu-1" class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a href="#" class="nav-link">Historial de Compras</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center ms-auto">
+            <button data-quantity="0" class="btn-cart me-3">
+              <svg class="icon-cart" viewBox="0 0 24.38 30.52" height="30.52" width="24.38" xmlns="http://www.w3.org/2000/svg">
+                <title>icon-cart</title>
+                <path transform="translate(-3.62 -0.85)" d="M28,27.3,26.24,7.51a.75.75,0,0,0-.76-.69h-3.7a6,6,0,0,0-12,0H6.13a.76.76,0,0,0-.76.69L3.62,27.3v.07a4.29,4.29,0,0,0,4.52,4H23.48a4.29,4.29,0,0,0,4.52-4ZM15.81,2.37a4.47,4.47,0,0,1,4.46,4.45H11.35a4.47,4.47,0,0,1,4.46-4.45Zm7.67,27.48H8.13a2.79,2.79,0,0,1-3-2.45L6.83,8.34h3V11a.76.76,0,0,0,1.52,0V8.34h8.92V11a.76.76,0,0,0,1.52,0V8.34h3L26.48,27.4a2.79,2.79,0,0,1-3,2.44Zm0,0"></path>
+              </svg>
+              <span class="quantity"></span>
+            </button>
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <?php echo htmlspecialchars($username); ?>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                  <li><a class="dropdown-item" href="#">Perfil</a></li>
+                  <li><a class="dropdown-item" href="../../php/logout.php">Cerrar sesión</a></li>
+                </ul>
+              </li>
+            </ul>
           </div>
         </div>
-      </nav>
-    </header>
+      </div>
+    </nav>
+  </header>
+
+
+
   
     <main>
       <section class="pt-6">
@@ -140,7 +140,7 @@ session_start();
                   <div class="carousel-inner">
                     <div class="carousel-item active">
                       <img
-                        src="img/93RRbiTAaI.jpg"
+                        src="../../img/93RRbiTAaI.jpg"
                         class="img-fluid"
                         alt="..."
                         width="1920"
@@ -150,7 +150,7 @@ session_start();
                     </div>
                     <div class="carousel-item">
                       <img
-                        src="img/BfGuQJpDolQ.jpg"
+                        src="../../img/BfGuQJpDolQ.jpg"
                         class=""
                         alt="..."
                         width="1920"
@@ -280,7 +280,7 @@ session_start();
                 <img
                   class="img-fluid"
                   alt="logo"
-                  src="img/logobook_withe_logo.png"
+                  src="../../img/logobook_withe_logo.png"
                   style="max-height: 20vh"
                 />
               </div>
@@ -428,7 +428,7 @@ session_start();
             <div class="col-6 small">
               <div class="lc-block">
                 <div editable="rich">
-                  <p>Copyright © My Company 2020</p>
+                  <p>Copyright © Story Bound Books 2024</p>
                 </div>
               </div>
               <!-- /lc-block -->
@@ -452,10 +452,12 @@ session_start();
       </section>
     </footer>
 
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/router.js"></script>
-    <script src="js/routes.js"></script>
-    <script src="js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- <script src="../../bootstrap/js/bootstrap.min.js"></script> -->
+    <script src="../../js/router.js"></script>
+    <script src="../../js/routes.js"></script>
+    <script src="../../js/index.js"></script>
 
   </body>
 </html>
