@@ -34,14 +34,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $uploadOk = 0;
     }
 
-        // Verificar si el archivo ya existe
-        if (file_exists($target_file)) {
-            // Eliminar el archivo existente
-            if (!unlink($target_file)) {
-                echo "Lo siento, hubo un error al eliminar el archivo existente.";
-                $uploadOk = 0;
-            }
+    // Verificar si el archivo ya existe
+    if (file_exists($target_file)) {
+        // Eliminar el archivo existente
+        if (!unlink($target_file)) {
+            echo "Lo siento, hubo un error al eliminar el archivo existente.";
+            $uploadOk = 0;
         }
+    }
 
     // Verificar el tamaño del archivo
     if ($_FILES["imagenURL"]["size"] > 500000) {
@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Preparar la sentencia SQL para evitar inyecciones SQL
-    if ($stmt = $conn->prepare("INSERT INTO Libros (Titulo, Autor, Editorial, AnioPublicacion, Formato, Idioma, Categoria, Precio, Sipnosis, ImagenURL, Destacado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
+    if ($stmt = $conn->prepare("INSERT INTO libros (Titulo, Autor, Editorial, AnioPublicacion, Formato, Idioma, Categoria, Precio, Sipnosis, ImagenURL, Destacado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
         
         // Vincular parámetros
         $stmt->bind_param("sssisssdssi", $titulo, $autor, $editorial, $anioPublicacion, $formato, $idioma, $genero, $precio, $sipnosis, $imagenURL, $destacado);
@@ -95,5 +95,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Método de solicitud no válido";
 }
 ?>
-
-

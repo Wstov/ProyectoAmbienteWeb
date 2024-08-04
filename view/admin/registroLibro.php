@@ -132,8 +132,8 @@ session_start();
               <!-- Columna para el checkbox -->
               <div class="col-md-4"> 
                 <div class="form-check form-switch">
-                  <input class="form-check-input mr-3" type="checkbox" role="switch" id="destacado" name="highlight" />
-                  <input type="hidden" name="destacado" value="false" />
+                  <input class="form-check-input mr-3" type="checkbox" role="switch" id="destacado" name="destacado" />
+                  <!-- <input type="hidden" name="destacado" value="false" /> -->
                   <label class="form-check-label" for="destacado">Destacar Producto</label>
                 </div>
               </div>

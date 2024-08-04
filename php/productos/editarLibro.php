@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         // Vincular parámetros
         if ($imagenURL) {
-            $stmt->bind_param("sssisssdsiii", $titulo, $autor, $editorial, $anioPublicacion, $formato, $idioma, $genero, $precio, $sipnosis, $imagenURL, $destacado, $libroID);
+            $stmt->bind_param("sssisssdssii", $titulo, $autor, $editorial, $anioPublicacion, $formato, $idioma, $genero, $precio, $sipnosis, $imagenURL, $destacado, $libroID);
         } else {
             $stmt->bind_param("sssisssdssii", $titulo, $autor, $editorial, $anioPublicacion, $formato, $idioma, $genero, $precio, $sipnosis, $destacado, $libroID);
         }

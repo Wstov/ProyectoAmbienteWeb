@@ -143,7 +143,7 @@ if ($libroID) {
             <div class="col-md-4"> 
               <div class="form-check form-switch">
                 <input class="form-check-input mr-3" type="checkbox" role="switch" id="destacado" name="destacado" <?php echo ($libro['Destacado']) ? 'checked' : ''; ?> />
-                <input type="hidden" name="destacado" value="false" />
+                <!-- <input type="hidden" name="destacado" value="false" /> -->
                 <label class="form-check-label" for="destacado">Destacar Producto</label>
               </div>
             </div>
