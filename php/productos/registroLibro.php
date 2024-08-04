@@ -34,11 +34,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $uploadOk = 0;
     }
 
-    // Verificar si el archivo ya existe
-    if (file_exists($target_file)) {
-        echo "Lo siento, el archivo ya existe.";
-        $uploadOk = 0;
-    }
+        // Verificar si el archivo ya existe
+        if (file_exists($target_file)) {
+            // Eliminar el archivo existente
+            if (!unlink($target_file)) {
+                echo "Lo siento, hubo un error al eliminar el archivo existente.";
+                $uploadOk = 0;
+            }
+        }
 
     // Verificar el tamaño del archivo
     if ($_FILES["imagenURL"]["size"] > 500000) {

@@ -33,9 +33,12 @@ session_start();
             <li class="menu-item menu-item-type-custom menu-item-object-custom nav-item nav-item-32739">
               <a href="./indexAdmin.php" class="nav-link">Inicio</a>
             </li>
+            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home nav-item nav-item-32738">
+              <a href="./registroLibro.php" class="nav-link">Registrar Libro</a>
+            </li>
 
             <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home nav-item nav-item-32738">
-              <a href="./listarLibro.php" class="nav-link">Lista de Libros</a>
+              <a href="./mostrarLibro.php" class="nav-link">Lista de Libros</a>
             </li>
           </ul>
           <!-- /lc_nav_menu -->
