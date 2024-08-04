@@ -2,7 +2,6 @@
 session_start();
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,6 +10,7 @@ session_start();
     <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css" />
     <title>Storybound Books - Administrador</title>
   </head>
+  
   <body>
   <header>
   <nav class="position-relative navbar flex-wrap py-4 px-4 px-md-10 navbar-expand-lg navbar-light bg-white shadow-lg">
@@ -34,15 +34,9 @@ session_start();
               <a href="./indexAdmin.php" class="nav-link">Inicio</a>
             </li>
             <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home nav-item nav-item-32738">
-              <a href="./registroLibro.php" class="nav-link">Registrar Libro</a>
-            
-            </li>
-            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home nav-item nav-item-32738">
               <a href="./adminUsuarios.php" class="nav-link">Administrar Usuarios</a>
             </li>
-            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home nav-item nav-item-32738">
-              <a href="./listarLibro.php" class="nav-link">Lista de Libros</a>
-            </li>
+
           </ul>
           <!-- /lc_nav_menu -->
         </div>
@@ -53,35 +47,34 @@ session_start();
     </div>
   </nav>
 </header>
-
-    <main>
-
-    </main>
+<main>
+  
+  </main>
     <footer>
 
-        <div
-          class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
-        >
-          <div class="col-md-4 d-flex align-items-center">
-            <div class="lc-block text-center mb-3 mb-md-0">
-              <a class="navbar-brand" href="#">
-                <img
-                  class="img-fluid me-1"
-                  src="../../img/storybound_books_logo_black.png"
-                  alt="my brand"
-                  width="120px"
-                  height="120px"
-                />
-              </a>
+<div
+  class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
+>
+  <div class="col-md-4 d-flex align-items-center">
+    <div class="lc-block text-center mb-3 mb-md-0">
+      <a class="navbar-brand" href="#">
+        <img
+          class="img-fluid me-1"
+          src="../../img/storybound_books_logo_black.png"
+          alt="my brand"
+          width="120px"
+          height="120px"
+        />
+      </a>
 
-              <span editable="inline" class="text-muted"
-                >© 2024 Storybound Books</span
-              >
-            </div>
-          </div>
-        </div>
+      <span editable="inline" class="text-muted"
+        >© 2024 Storybound Books</span
+      >
+    </div>
+  </div>
+</div>
 
-    </footer>
-    
+</footer>
+    <script src="../../bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
