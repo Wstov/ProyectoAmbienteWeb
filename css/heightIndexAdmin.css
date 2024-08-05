@@ -1,0 +1,12 @@
+.responsive-image {
+  height: 459px; /* Valor predeterminado */
+  width: 100%;
+  object-fit: cover; /* Opcional: para mantener la proporción de la imagen */
+}
+
+@media (max-width: 1200px) {
+  /* Ajusta este valor según el tamaño en el que desees cambiar el tamaño de la imagen */
+  .responsive-image {
+    height: 704px;
+  }
+}
