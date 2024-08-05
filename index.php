@@ -1,7 +1,8 @@
 <?php
 session_start();
-
+include "./php/config.php";
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,6 +13,42 @@ session_start();
     <title>Storybound Books</title>
   </head>
   <body>
+    <!-- lazily load the Swiper CSS file -->
+    <link rel="preload" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <!-- lazily load the Swiper JS file -->
+    <script defer="defer" src="https://unpkg.com/swiper@8/swiper-bundle.min.js" onload="initializeSwiperRANDOMID();"></script>
+
+    <!-- lc-needs-hard-refresh -->
+
+    <script>
+        function initializeSwiperRANDOMID(){
+                const swiper = new Swiper(".mySwiper-RANDOMID", {
+                    slidesPerView: 1,
+                    grabCursor: true,
+                    spaceBetween: 30,
+                    
+                    pagination: {
+                        el: ".swiper-pagination",
+                        dynamicBullets: true,
+                    },
+                    breakpoints: {
+                        768: {
+                            slidesPerView: 2,
+                        },
+                        992: {
+                            slidesPerView: 3,
+                        },
+                    },
+                });
+            }
+    </script>
+
+    <style>
+        .mySwiper-RANDOMID .card {max-width:21rem}
+    </style>
+
+
   <header>
       <nav class="navbar navbar-expand-lg py-3 navbar-light">
         <div class="container">
@@ -74,202 +111,189 @@ session_start();
     </header>
   
     <main>
-      <section class="pt-6">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="lc-block text-center">
-                <div editable="rich">
-                  <h1 class="fw-bold">
-                    Mundos Entre Páginas
-                  </h1>
-                </div>
-              </div>
-              <!-- /lc-block -->
-            </div>
-            <!-- /col -->
-          </div>
-        </div>
-      </section>
-      <section class="pb-6 pt-4">
-        <div class="container-fluid" style="max-width: 1920px">
-          <div class="row justify-content-center">
-            <div class="col-xxl-10">
-              <div class="lc-block">
-                <div
-                  id="carouselPortofolioIndicators"
-                  class="carousel slide"
-                  data-bs-ride="carousel"
-                >
-                  <div class="carousel-indicators">
-                    <button
-                      type="button"
-                      data-bs-target="#carouselPortofolioIndicators"
-                      data-bs-slide-to="0"
-                      class="active"
-                      aria-label="Slide 1"
-                    ></button>
-                    <button
-                      type="button"
-                      data-bs-target="#carouselPortofolioIndicators"
-                      data-bs-slide-to="1"
-                      aria-label="Slide 2"
-                      class=""
-                      aria-current="true"
-                    ></button>
-                    <button
-                      type="button"
-                      data-bs-target="#carouselPortofolioIndicators"
-                      data-bs-slide-to="2"
-                      aria-label="Slide 3"
-                    ></button>
-                    <button
-                      type="button"
-                      data-bs-target="#carouselPortofolioIndicators"
-                      data-bs-slide-to="3"
-                      aria-label="Slide 4"
-                    ></button>
-                    <button
-                      type="button"
-                      data-bs-target="#carouselPortofolioIndicators"
-                      data-bs-slide-to="4"
-                      aria-label="Slide 5"
-                    ></button>
-                  </div>
+    <section class="py-4 py-xxl-5" lc-helper="background" style="background:linear-gradient(180deg, rgba(19, 16, 34, 0.58) 0%, rgba(19, 16, 34, 0.78) 100%), url(https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8M3x8Y29tcGFueXxlbnwwfDB8fHwxNjQ2MDU3MDAw&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=768)  center / cover no-repeat;
+">
+	<div class="container pt-4 py-md-6">
+		<div class="row justify-content-center">
+			<div class="col-md-12 col-xxl-6">
+				<div class="lc-block text-light mb-4">
+					<div editable="rich">
+						<h1 class="display-2 fw-bold text-center">The quick brown fox jumps over the lazy dog</h1>
+					</div>
+				</div><!-- /lc-block -->
+				<div class="lc-block mb-5">
+					<div editable="rich">
+						<p class="text-center rfs-9 text-white-50"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et metus id ligula malesuada placerat sit amet quis enim.</p>
+					</div>
+				</div><!-- /lc-block -->
+				<div class="lc-block text-center">
+					<a class="btn btn-primary btn-lg" href="#" role="button" lc-helper="button">View Our Projects</a>
+				</div><!-- /lc-block -->
+			</div><!-- /col -->
+		</div>
+	</div>
+	<div class="container-fluid py-6" style=" ">
+		<div class="row g-3 justify-content-around">
+			<div class="col-md-4 text-center text-md-start mb-3">
+				<div class="lc-block d-inline-block me-2">
 
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <img
-                        src="img/93RRbiTAaI.jpg"
-                        class="img-fluid"
-                        alt="..."
-                        width="1920"
-                        height="960"
-                        loading="lazy"
-                      />
+
+					<a href="https://www.linkedin.com/">
+						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="3em" height="3em" viewBox="0 0 24 24" style="" lc-helper="svg-icon" fill="currentColor" class="text-light">
+							<path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"></path>
+						</svg>
+					</a>
+
+
+				</div>
+				<div class="lc-block d-inline-block me-2">
+
+					<a href="https://facebook.com/">
+						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="text-light" width="3em" height="3em" viewBox="0 0 24 24" style="" lc-helper="svg-icon" fill="currentColor">
+							<path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"></path>
+						</svg>
+					</a>
+
+
+				</div>
+
+				<div class="lc-block d-inline-block me-2">
+
+					<a href="https://twitter.com/">
+						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="text-light" width="3em" height="3em" viewBox="0 0 24 24" style="" lc-helper="svg-icon" fill="currentColor">
+							<path d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z"></path>
+						</svg>
+					</a>
+
+
+				</div>
+				<div class="lc-block d-inline-block me-2">
+
+					<a href="https://www.youtube.com/">
+						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="text-light" width="3em" height="3em" viewBox="0 0 24 24" style="" lc-helper="svg-icon" fill="currentColor">
+							<path d="M10,15L15.19,12L10,9V15M21.56,7.17C21.69,7.64 21.78,8.27 21.84,9.07C21.91,9.87 21.94,10.56 21.94,11.16L22,12C22,14.19 21.84,15.8 21.56,16.83C21.31,17.73 20.73,18.31 19.83,18.56C19.36,18.69 18.5,18.78 17.18,18.84C15.88,18.91 14.69,18.94 13.59,18.94L12,19C7.81,19 5.2,18.84 4.17,18.56C3.27,18.31 2.69,17.73 2.44,16.83C2.31,16.36 2.22,15.73 2.16,14.93C2.09,14.13 2.06,13.44 2.06,12.84L2,12C2,9.81 2.16,8.2 2.44,7.17C2.69,6.27 3.27,5.69 4.17,5.44C4.64,5.31 5.5,5.22 6.82,5.16C8.12,5.09 9.31,5.06 10.41,5.06L12,5C16.19,5 18.8,5.16 19.83,5.44C20.73,5.69 21.31,6.27 21.56,7.17Z"></path>
+						</svg>
+					</a>
+
+				</div>
+			</div>
+			<div class="col-md-4 text-center mb-3">
+				<div class="lc-block"><a class="btn btn-lg btn-link text-decoration-none text-white" href="" role="button">Explore projects <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" class="ms-2" viewBox="0 0 16 16">
+							<path d="m11.798 8.271-3.182 1.97c-.27.166-.616-.036-.616-.372V9.1s-2.571-.3-4 2.4c.571-4.8 3.143-4.8 4-4.8v-.769c0-.336.346-.538.616-.371l3.182 1.969c.27.166.27.576 0 .742z"></path>
+							<path d="m.5 3 .04.87a1.99 1.99 0 0 0-.342 1.311l.637 7A2 2 0 0 0 2.826 14h10.348a2 2 0 0 0 1.991-1.819l.637-7A2 2 0 0 0 13.81 3H9.828a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 6.172 1H2.5a2 2 0 0 0-2 2zm.694 2.09A1 1 0 0 1 2.19 4h11.62a1 1 0 0 1 .996 1.09l-.636 7a1 1 0 0 1-.996.91H2.826a1 1 0 0 1-.995-.91l-.637-7zM6.172 2a1 1 0 0 1 .707.293L7.586 3H2.19c-.24 0-.47.042-.683.12L1.5 2.98a1 1 0 0 1 1-.98h3.672z"></path>
+						</svg></a></div><!-- /lc-block -->
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="my-5">
+    <div class="container py-6">
+        <!-- Slider main container -->
+        <div class="swiper mySwiper-RANDOMID">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <?php
+                $sql = $conn->query("SELECT * FROM libros WHERE Destacado = 1");
+
+                if ($sql->num_rows > 0) {
+                    while ($row = $sql->fetch_object()) {
+                ?>
+                        <div class="swiper-slide h-100">
+                            <div class="card shadow mx-auto">
+                                <div class="card-body">
+                                    <div class="lc-block">
+                                        <img class="img-fluid" src="./booksImages/<?= htmlspecialchars($row->ImagenURL) ?>" sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080" alt="Photo by Dayana Brooke" loading="lazy">
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="lc-block mb-3">
+                                            <div editable="rich">
+                                                <h2 class="h5"><?= htmlspecialchars($row->Titulo) ?></h2>
+                                                <p><?= htmlspecialchars($row->Autor) ?></p>
+                                                <p>₡<?= number_format($row->Precio, 2, ',', '.') ?></p>
+                                            </div>
+                                        </div>
+                                        <div class="lc-block">
+                                            <a class="btn btn-primary" href="#" role="button">Button</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                <?php
+                    }
+                } else {
+                    echo '<p>No hay libros disponibles.</p>';
+                }
+                ?>
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination position-relative pt-5 bottom-0"></div>
+        </div>
+    </div>
+</section>
+
+<!-- NOVEDADES -->
+<!-- CARDS DE NOVEDADES -->
+<section>
+    <section class="pt-5" style="">
+        <div class="container text-center ">
+            <div class="p-5 lc-block">
+                <div class="lc-block mb-4">
+                    <div>
+                        <h2 class="display-1 fw-bold">TíTulo</h2>
                     </div>
-                    <div class="carousel-item">
-                      <img
-                        src="img/BfGuQJpDolQ.jpg"
-                        class=""
-                        alt="..."
-                        width="1920"
-                        height="960"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div class="carousel-item">
-                      <img
-                        src="img/bWdVjVjFZU0.jpg"
-                        class=""
-                        alt="..."
-                        width="1920"
-                        height="960"
-                        loading="lazy"
-                      />
-                    </div>
-                    <!-- <div class="carousel-item">
-                      <img
-                        src="https://via.placeholder.com/1920x960.png/dce2ef/f4f6fa"
-                        class=""
-                        alt="..."
-                        width="1920"
-                        height="960"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div class="carousel-item">
-                      <img
-                        src="https://via.placeholder.com/1920x960.png/f4f6fa/dce2ef"
-                        class=""
-                        alt="..."
-                        width="1920"
-                        height="960"
-                        loading="lazy"
-                      />
-                    </div> -->
-                  </div>
                 </div>
-              </div>
+                <div class="lc-block">
+                    <div>
+                        <p class="lead">Lorem, ipsum dolor sit amet cons iste minus, minima ducimus! Non fugiat beatae dolore architecto, amet voluptatum delectus.</p>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </section>
-      <section class="">
-        <div class="container-fluid" style="max-width: 1920px">
-          <div class="row justify-content-md-center">
-            <div
-              class="col-xxl-10 d-flex gap-3 justify-content-center justify-content-md-end py-4"
-            >
-              <div class="lc-block">
-                <a href="https://www.facebook.com/">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="2em"
-                    height="2em"
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                    lc-helper="svg-icon"
-                  >
-                    <path
-                      d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"
-                    ></path>
-                  </svg>
-                </a>
-              </div>
-              <div class="lc-block">
-                <a href="https://github.com/">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="2em"
-                    height="2em"
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                    lc-helper="svg-icon"
-                    class=""
-                  >
-                    <path
-                      d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
-                    ></path>
-                  </svg>
-                </a>
-              </div>
-              <div class="lc-block">
-                <a href="https://twitter.com/">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="2em"
-                    height="2em"
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                    lc-helper="svg-icon"
-                  >
-                    <path
-                      d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
-                    ></path>
-                  </svg>
-                </a>
-              </div>
-              <div class="lc-block">
-                <a href="https://instagram.com/">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="2em"
-                    height="2em"
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                    lc-helper="svg-icon"
-                  >
-                    <path
-                      d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"
-                    ></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
+    </section>
+
+    <section class="mx-auto p-2" style="max-width: 1200px;">
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <?php
+            $sql = $conn->query("SELECT * FROM libros WHERE Destacado = 0");
+
+            if ($sql->num_rows > 0) {
+                while ($row = $sql->fetch_object()) {
+            ?>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card h-100 shadow-lg">
+                            <a>
+                                <img src="./booksImages/<?= htmlspecialchars($row->ImagenURL) ?>" class="card-img-top" alt="<?= htmlspecialchars($row->Titulo) ?>">
+                            </a>
+                            <div class="card-body d-flex flex-column align-items-center">
+                                <h5 class="card-title"><?= htmlspecialchars($row->Titulo) ?></h5>
+                                <p class="card-text"><?= htmlspecialchars($row->Autor) ?></p>
+                                <p class="card-text">₡<?= number_format($row->Precio, 2, ',', '.') ?></p>
+                                <a type="submit" class="button_show_more text-uppercase">
+                                    Ver Más
+                                    <div class="arrow-wrapper">
+                                        <div class="arrow"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+            <?php
+                }
+            } else {
+                echo '<p>No hay libros disponibles.</p>';
+            }
+            $conn->close();
+            ?>
         </div>
-      </section>
+    </section>
+</section>
+
+
+
+
     </main>
     <footer >
       <section class="bg-dark text-light">
