@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -105,9 +104,6 @@ session_start();
         ?>
         </div>
 </main>
-
-
-
   <footer>
 <div
   class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
@@ -130,7 +126,6 @@ session_start();
     </div>
   </div>
 </div>
-
 </footer>
     <script src="../../bootstrap/js/bootstrap.min.js"></script>
   </body>
