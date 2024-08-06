@@ -9,6 +9,7 @@ include "./php/config.php";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/verMasBtn.css">
     <!-- <link rel="stylesheet" href="css/styles.css" /> -->
     <title>Storybound Books</title>
   </head>
@@ -84,7 +85,7 @@ include "./php/config.php";
                   <a
                     href="#"
                     class="nav-link"
-                    >BS5 Page Templates</a
+                    >Agragar Algo</a
                   >
                 </li>
                 <li
@@ -93,7 +94,7 @@ include "./php/config.php";
                   <a
                     href="#"
                     class="nav-link"
-                    >BS5 Snippets</a
+                    >Agragar Algo</a
                   >
                 </li>
               </ul>
@@ -103,7 +104,7 @@ include "./php/config.php";
               <a class="btn link-secondary" href="view/login.php" role="button" 
                 >Ingresar</a
               >
-              <a class="btn btn-primary" href="view/registroUsuario.php"  role="button">Registrarse</a> <!-- < onclick="ROUTER.load('home')" -->
+              <a class="btn btn-primary" href="view/registroUsuario.php"  role="button">Registrarse</a>
             </div>
           </div>
         </div>
@@ -111,7 +112,7 @@ include "./php/config.php";
     </header>
   
     <main>
-    <section class="py-4 py-xxl-5" lc-helper="background" style="background:linear-gradient(180deg, rgba(19, 16, 34, 0.58) 0%, rgba(19, 16, 34, 0.78) 100%), url(https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8M3x8Y29tcGFueXxlbnwwfDB8fHwxNjQ2MDU3MDAw&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=768)  center / cover no-repeat;
+    <section class="py-4 py-xxl-5" lc-helper="background" style="background:linear-gradient(180deg, rgba(19, 16, 34, 0.58) 0%, rgba(19, 16, 34, 0.78) 100%), url(./img/bWdVjVjFZU0.jpg)  center / cover no-repeat;
 ">
 	<div class="container pt-4 py-md-6">
 		<div class="row justify-content-center">
@@ -133,7 +134,7 @@ include "./php/config.php";
 		</div>
 	</div>
 	<div class="container-fluid py-6" style=" ">
-		<div class="row g-3 justify-content-around">
+		<div class="row g-3 justify-content-end ">
 			<div class="col-md-4 text-center text-md-start mb-3">
 				<div class="lc-block d-inline-block me-2">
 
@@ -177,15 +178,30 @@ include "./php/config.php";
 
 				</div>
 			</div>
-			<div class="col-md-4 text-center mb-3">
+			<!-- <div class="col-md-4 text-center mb-3">
 				<div class="lc-block"><a class="btn btn-lg btn-link text-decoration-none text-white" href="" role="button">Explore projects <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" class="ms-2" viewBox="0 0 16 16">
 							<path d="m11.798 8.271-3.182 1.97c-.27.166-.616-.036-.616-.372V9.1s-2.571-.3-4 2.4c.571-4.8 3.143-4.8 4-4.8v-.769c0-.336.346-.538.616-.371l3.182 1.969c.27.166.27.576 0 .742z"></path>
 							<path d="m.5 3 .04.87a1.99 1.99 0 0 0-.342 1.311l.637 7A2 2 0 0 0 2.826 14h10.348a2 2 0 0 0 1.991-1.819l.637-7A2 2 0 0 0 13.81 3H9.828a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 6.172 1H2.5a2 2 0 0 0-2 2zm.694 2.09A1 1 0 0 1 2.19 4h11.62a1 1 0 0 1 .996 1.09l-.636 7a1 1 0 0 1-.996.91H2.826a1 1 0 0 1-.995-.91l-.637-7zM6.172 2a1 1 0 0 1 .707.293L7.586 3H2.19c-.24 0-.47.042-.683.12L1.5 2.98a1 1 0 0 1 1-.98h3.672z"></path>
-						</svg></a></div><!-- /lc-block -->
-			</div>
+						</svg></a></div>
+			</div> -->
 		</div>
 	</div>
 </section>
+<div class="container text-center ">
+            <div class="p-5 lc-block">
+                <div class="lc-block mb-4">
+                    <div>
+                        <h2 class="display-1 fw-bold">TíTulo</h2>
+                    </div>
+                </div>
+                <div class="lc-block">
+                    <div>
+                        <p class="lead">Lorem, ipsum dolor sit amet cons iste minus, minima ducimus! Non fugiat beatae dolore architecto, amet voluptatum delectus.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 <section class="my-5">
     <div class="container py-6">
@@ -215,7 +231,7 @@ include "./php/config.php";
                                             </div>
                                         </div>
                                         <div class="lc-block">
-                                            <a class="btn btn-primary" href="#" role="button">Button</a>
+                                            <a class="btn btn-primary" href="./view/infoLibro.php?LibroID=<?= htmlspecialchars($row->LibroID) ?>" role="button">Button</a>
                                         </div>
                                     </div>
                                 </div>
@@ -254,7 +270,7 @@ include "./php/config.php";
         </div>
     </section>
 
-    <section class="mx-auto p-2" style="max-width: 1200px;">
+    <section class="mx-auto p-2 mb-5" style="max-width: 1200px;">
         <div class="row row-cols-1 row-cols-md-4 g-4">
             <?php
             $sql = $conn->query("SELECT * FROM libros WHERE Destacado = 0");
@@ -271,7 +287,7 @@ include "./php/config.php";
                                 <h5 class="card-title"><?= htmlspecialchars($row->Titulo) ?></h5>
                                 <p class="card-text"><?= htmlspecialchars($row->Autor) ?></p>
                                 <p class="card-text">₡<?= number_format($row->Precio, 2, ',', '.') ?></p>
-                                <a type="submit" class="button_show_more text-uppercase">
+                                <a  href="./view/infoLibro.php?LibroID=<?= htmlspecialchars($row->LibroID) ?>" class="button_show_more text-uppercase">
                                     Ver Más
                                     <div class="arrow-wrapper">
                                         <div class="arrow"></div>
@@ -290,9 +306,6 @@ include "./php/config.php";
         </div>
     </section>
 </section>
-
-
-
 
     </main>
     <footer >

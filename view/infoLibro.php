@@ -1,18 +1,30 @@
 <?php
-session_start();
+include '../php/config.php';
 
+// Fetch the specific book details
+$libroId = $_GET['LibroID'] ?? 0;
+$sql = $conn->query("SELECT * FROM libros WHERE LibroID = $libroId");
+$showBook = $sql->fetch_object();
+
+// Fetch recommended books based on genre
+$recommendedSql = $conn->query("SELECT * FROM libros WHERE Categoria = '$showBook->Categoria' AND LibroID != $libroId");
+$recommendedBooks = [];
+while ($row = $recommendedSql->fetch_object()) {
+    $recommendedBooks[] = $row;
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
-    <!-- <link rel="stylesheet" href="css/styles.css" /> -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Storybound Books</title>
-  </head>
-  <body>
-  <header>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="../css/verMasBtn.css">
+</head>
+<body>
+<header>
       <nav class="navbar navbar-expand-lg py-3 navbar-light">
         <div class="container">
           <a class="navbar-brand" href="../index.php">
@@ -72,65 +84,103 @@ session_start();
         </div>
       </nav>
     </header>
-
-  <section class="bg-light py-5">
-    <div class="p-5 lc-block shadow rounded-3 col-xl-10 offset-xl-1">
-        <h3 class="card-title text-center mb-5 font-weight-bold fs-3">Regístrate llenando los siguientes espacios:</h3>
-
-        <form class="form-horizontal" id="formulario" method="POST" action="../php/registroUser.php" enctype="multipart/form-data">
-
-            <div class="form-group mb-4">
-                <label for="Nombre">Nombre:</label>
-                <input name="Nombre" type="text" class="form-control" id="Nombre" placeholder="Ingrese su Nombre" required/>
-                <p class="text-danger"></p>
-            </div>
-
-            <div class="form-group mb-4">
-                <label for="Apellido">Apellido:</label>
-                <input name="Apellido" type="text" class="form-control" id="apellido" placeholder="Ingrese su Apellido" required/>
-                <p class="text-danger"></p>
-            </div>
-
-            <div class="form-group mb-4">
-                <label for="Email">Email:</label>
-                <input name="Email" type="email" class="form-control" id="Email" placeholder="Ingrese su Email" required/>
-                <p class="text-danger"></p>
-            </div>
-
-            
-            <div class="form-group mb-4">
-                <label for="Contrasena">Contraseña:</label>
-                <input name="Contrasena" type="password" class="form-control" id="Contrasena" placeholder="Ingrese una contraseña" required/>
-                <p class="text-danger"></p>
-            </div>
-
-            <div class="form-group mb-4">
-                <label for="Edad">Edad:</label>
-                <input name="Edad" type="number" class="form-control" id="Edad" placeholder="Ingrese el número de teléfono"/>
-                <p class="text-danger"></p>
-            </div>
-
-            <div class="form-group mb-4">
-                <label for="Direccion">Dirección:</label>
-                <input name="Direccion" type="text" class="form-control" id="Direccion" placeholder="Ingrese su dirección"/>
-                <p class="text-danger"></p>
-            </div>
-
-            <div class="form-group mb-4">
-                <label for="Telefono">Teléfono:</label>
-                <input name="Telefono" type="number" class="form-control" id="Telefono" placeholder="Ingrese el número de teléfono"/>
-                <p class="text-danger"></p>
-            </div>
-
-
-            <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-lg btn-primary">Registrarse</button>
+    <main>
+        <section>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-6 col-xl-7 mb-lg-0 py-5 py-md-6">
+                        <div class="lc-block mb-3 mb-md-5 lh-1">
+                            <div>
+                                <h1 class="text-primary fw-bolder display-5">Storybound Books</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-xl-5">
+                        <div class="lc-block px-md-4 px-lg-5 lh-lg">
+                            <div>
+                                <p class="rfs-7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et metus id ligula malesuada placerat sit amet quis enim.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-        </form>
-    </div>
-  </section>
+            </div>
+        </section>
 
-        <footer >
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <img src="../booksImages/<?= htmlspecialchars($showBook->ImagenURL) ?>" class="img-fluid grow-on-hover" alt="Portada del libro" style="width: 100%; height: auto;">
+                    </div>
+                    <div class="col-md-5">
+                        <form action="user/cart/add-product.php" method="POST">
+                            <input type="hidden" value="<?= htmlspecialchars($showBook->LibroID) ?>" name="idProduct">
+                            <input type="hidden" value="<?= htmlspecialchars($showBook->Titulo) ?>" name="nameProduct">
+                            <input type="hidden" value="<?= htmlspecialchars($showBook->Precio) ?>" name="price">
+
+                            <p class="fw-bold display-5"><?= htmlspecialchars($showBook->Titulo) ?></p>
+                            <p><strong>Autor:</strong> <?= htmlspecialchars($showBook->Autor) ?></p>
+                            <p><strong>Editorial:</strong> <?= htmlspecialchars($showBook->Editorial) ?></p>
+                            <p><strong>Fecha de Publicación:</strong> <?= htmlspecialchars($showBook->AnioPublicacion) ?></p>
+                            <p><strong>Formato:</strong> <?= htmlspecialchars($showBook->Formato) ?></p>
+                            <p><strong>Idioma:</strong> <?= htmlspecialchars($showBook->Idioma) ?></p>
+                            <p><strong>Género:</strong> <?= htmlspecialchars($showBook->Categoria) ?></p>
+                            <p><strong>Precio:</strong> ₡<?= number_format($showBook->Precio, 2, ',', '.') ?></p>
+                            <div class="form-group row mb-3">
+                                <label for="cantidad" class="col-sm-2 col-form-label"><strong>Cantidad:</strong></label>
+                                <div class="col-sm-2">
+                                    <input type="number" class="form-control" id="quantity" name="quantity" min="1" value="1">
+                                </div>
+                            </div>
+
+                            <button class="CartBtn">
+                                <span class="IconContainer"> 
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512" fill="#fff" class="icon"><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"></path></svg>
+                                </span>
+                                <p class="text_buy">Agregar al Carrito</p>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="col-md-3">
+                        <h4>Recomendaciones Especiales</h4>
+                        <p>Libros que también te pueden interesar:</p>
+                        <hr>
+
+                        <div class="scroll-container" style="height: 350px; overflow-y: auto;">
+                            <?php foreach ($recommendedBooks as $book) { ?>
+                                <div class="zoom">
+                                    <a style="text-decoration: none;" href="./infoLibro.php?LibroID=<?= htmlspecialchars($book->LibroID) ?>">
+                                        <div class="d-flex align-items-center">
+                                            <div class="p-2">
+                                                <img src="../booksImages/<?= htmlspecialchars($book->ImagenURL) ?>" alt="portada del libro" class="img-thumbnail" style="width: 70px; height: auto;">
+                                            </div>
+                                            <div class="p-2">
+                                                <p class="mb-1 text-secondary"><?= strlen($book->Titulo) > 20 ? htmlspecialchars(substr($book->Titulo, 0, 20)) . '...' : htmlspecialchars($book->Titulo) ?></p>
+                                                <p class="mb-1 text-secondary">₡<?= number_format($book->Precio, 2, ',', '.') ?></p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="lc-block mb-4">
+                    <div>
+                        <p class="fw-bold display-2 about-title">Sobre el Libro</p>
+                    </div>
+                </div>
+                <div class="lc-block mb-5">
+                    <div>
+                        <p class="fs-5"><?= htmlspecialchars($showBook->Sipnosis) ?></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+	<footer >
       <section class="bg-dark text-light">
         <div class="container py-5">
           <div class="row">
@@ -310,8 +360,10 @@ session_start();
         </div>
       </section>
     </footer>
-
-     
-     <script src="../bootstrap/js/bootstrap.min.js"></script>
-  </body>
+	<script src="../bootstrap/js/bootstrap.min.js"></script>
+</body>
 </html>
+
+<?php
+$conn->close();
+?>

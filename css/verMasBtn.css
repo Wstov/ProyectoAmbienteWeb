@@ -1,0 +1,376 @@
+.long-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.zoom:hover {
+  transform: scale(
+    1.03
+  ); /* Ajusta el valor según sea necesario para el efecto deseado */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombreado al pasar el cursor */
+  transition: transform 0.3s, box-shadow 0.3s; /* Agrega una transición para que sea suave */
+  cursor: pointer;
+}
+
+/*BUY BUTTON*/
+.CartBtn {
+  width: 40%;
+  height: 40px;
+  border-radius: 12px;
+  border: none;
+  background-color: #1c1c1c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: 0.5s;
+  overflow: hidden;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.103);
+  position: relative;
+  text-decoration: none;
+}
+
+.IconContainer {
+  position: absolute;
+  left: -50px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 2;
+  transition-duration: 0.5s;
+}
+
+.icon {
+  border-radius: 1px;
+}
+
+.text_buy {
+  height: 100%;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  z-index: 1;
+  transition-duration: 0.5s;
+  font-size: 1.04em;
+  font-weight: 600;
+  margin: 0;
+}
+
+.CartBtn:hover .IconContainer {
+  transform: translateX(58px);
+  border-radius: 40px;
+  transition-duration: 0.5s;
+}
+
+.CartBtn:hover .text_buy {
+  transform: translate(10px, 0px);
+  transition-duration: 0.5s;
+}
+
+.CartBtn:active {
+  transform: scale(0.95);
+  transition-duration: 0.5s;
+}
+/*END BUY BUTTON*/
+
+.about-title {
+  font-size: 50px; /* Ajusta el tamaño de la fuente según tus necesidades */
+}
+
+/*CARD DE OFERTAS*/
+.card_offer {
+  width: 310px;
+  background: white;
+  padding: 0.4em;
+  border-radius: 6px;
+}
+
+.card-image {
+  width: 310px;
+  height: 520px;
+  border-radius: 6px 6px 0 0;
+}
+
+.card-image img {
+  object-fit: cover;
+}
+
+.card-image:hover {
+  transform: scale(0.98);
+}
+
+.category:hover {
+  cursor: pointer;
+}
+
+/*END CARDS DE OFERTAS*/
+
+/*CART*/
+.btn-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 37px;
+  height: 37px;
+  border-radius: 10px;
+  border: none;
+  background-color: transparent;
+  position: relative;
+}
+
+.btn-cart::after {
+  content: attr(data-quantity);
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  font-size: 15px;
+  color: white;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.2s linear;
+  top: 115%;
+}
+
+.icon-cart {
+  width: 24px;
+  height: 30.52px;
+  transition: 0.2s linear;
+}
+
+.icon-cart path {
+  fill: #ffffff;
+  transition: 0.2s linear;
+}
+
+.btn-cart:hover > .icon-cart {
+  transform: scale(1.1);
+}
+
+.btn-cart:hover > .icon-cart path {
+  fill: rgb(186, 34, 233);
+}
+
+.btn-cart:hover::after {
+  visibility: visible;
+  opacity: 1;
+  top: 105%;
+}
+
+.quantity {
+  display: none;
+}
+/*END CART*/
+
+.grow-on-hover:hover {
+  transform: scale(1.04); /* Puedes ajustar el valor según lo que desees */
+  transition: transform 0.3s ease; /* Agrega una transición para que sea suave */
+}
+
+/*VER MAS*/
+.button_show_more {
+  --primary-color: #2d2d2d;
+  --secondary-color: #fff;
+  --hover-color: #111;
+  --arrow-width: 10px;
+  --arrow-stroke: 2px;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 20px;
+  color: var(--secondary-color);
+  padding: 6px 50px;
+  background: var(--primary-color);
+  display: flex;
+  transition: 0.2s background;
+  align-items: center;
+  gap: 0.6em;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.button_show_more .arrow-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button_show_more .arrow {
+  margin-top: 1px;
+  width: var(--arrow-width);
+  background: var(--primary-color);
+  height: var(--arrow-stroke);
+  position: relative;
+  transition: 0.2s;
+}
+
+.button_show_more .arrow::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  border: solid var(--secondary-color);
+  border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+  display: inline-block;
+  top: -3px;
+  right: 3px;
+  transition: 0.2s;
+  padding: 3px;
+  transform: rotate(-45deg);
+}
+
+.button_show_more:hover {
+  background-color: var(--hover-color);
+}
+
+.button_show_more:hover .arrow {
+  background: var(--secondary-color);
+}
+
+.button_show_more:hover .arrow:before {
+  right: 0;
+}
+/*END VER MAS*/
+
+/*DELETE BUTTOM*/
+.delete_button {
+  position: relative;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: 1px solid #cc0000;
+  background-color: #e50000;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.delete_button,
+.delete_button__icon,
+.delete_button__text {
+  transition: all 0.3s;
+}
+
+.delete_button .delete_button__text {
+  transform: translateX(35px);
+  color: #fff;
+  font-weight: 600;
+}
+
+.delete_button .delete_button__icon {
+  position: absolute;
+  transform: translateX(109px);
+  height: 100%;
+  width: 39px;
+  background-color: #cc0000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete_button .delete_svg {
+  width: 20px;
+}
+
+.delete_button:hover {
+  background: #cc0000;
+}
+
+.delete_button:hover .delete_button__text {
+  color: transparent;
+}
+
+.delete_button:hover .delete_button__icon {
+  width: 148px;
+  transform: translateX(0);
+}
+
+.delete_button:active .delete_button__icon {
+  background-color: #b20000;
+}
+
+.delete_button:active {
+  border: 1px solid #b20000;
+}
+/*END DELETE BUTTOM*/
+
+/*BOTON DE PAGO*/
+.Btn {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(15, 15, 15);
+  border: none;
+  color: white;
+  font-weight: 600;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.103);
+  position: relative;
+  overflow: hidden;
+  transition-duration: 0.3s;
+  text-decoration: none;
+}
+
+.svgIcon {
+  width: 16px;
+}
+
+.svgIcon path {
+  fill: white;
+}
+
+.Btn::before {
+  width: 100%;
+  height: 130px;
+  position: absolute;
+  content: "";
+  background-color: white;
+  border-radius: 50%;
+  left: -100%;
+  top: 0;
+  transition-duration: 0.3s;
+  mix-blend-mode: difference;
+}
+
+.Btn:hover::before {
+  transition-duration: 0.3s;
+  transform: translate(100%, -50%);
+  border-radius: 0;
+}
+
+.Btn:active {
+  transform: translate(5px, 5px);
+  transition-duration: 0.3s;
+}
+/*END BOTON DE PAGO*/
+
+.registroLink {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*REGISTRO IMAGEN USUARIO*/
+.profile-picture-container {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile-picture-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Esto asegura que la imagen se ajuste correctamente al contenedor circular */
+}
+/*END REGISTRO IMAGEN USUARIO*/
