@@ -114,7 +114,7 @@
 /*END CARDS DE OFERTAS*/
 
 /*CART*/
-.btn-cart {
+/* .btn-cart {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -132,7 +132,7 @@
   height: fit-content;
   position: absolute;
   font-size: 15px;
-  color: white;
+  color: #000;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   opacity: 0;
@@ -148,7 +148,7 @@
 }
 
 .icon-cart path {
-  fill: #ffffff;
+  fill: #000;
   transition: 0.2s linear;
 }
 
@@ -157,7 +157,7 @@
 }
 
 .btn-cart:hover > .icon-cart path {
-  fill: rgb(186, 34, 233);
+  fill: rgb(2, 2, 246);
 }
 
 .btn-cart:hover::after {
@@ -168,7 +168,7 @@
 
 .quantity {
   display: none;
-}
+} */
 /*END CART*/
 
 .grow-on-hover:hover {
