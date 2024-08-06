@@ -1,3 +1,4 @@
+
 <?php
 
 include("../config.php");
@@ -17,8 +18,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sipnosis = $_POST['sipnosis'];
     $destacado = isset($_POST['destacado']) ? 1 : 0; // Asegurar que 'destacado' es booleano
 
-    // Inicializar $imagenURL
-    $imagenURL = '';
+    // Inicializar $imagenURL con 'default.jpg'
+    $imagenURL = 'default.jpg';
 
     // Manejar la carga de la imagen si se proporciona una nueva
     if ($_FILES["imagenURL"]["name"]) {
@@ -76,11 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt = $conn->prepare("UPDATE Libros SET Titulo=?, Autor=?, Editorial=?, AnioPublicacion=?, Formato=?, Idioma=?, Categoria=?, Precio=?, Sipnosis=?, ImagenURL=?, Destacado=? WHERE LibroID=?")) {
         
         // Vincular parámetros
-        if ($imagenURL) {
-            $stmt->bind_param("sssisssdssii", $titulo, $autor, $editorial, $anioPublicacion, $formato, $idioma, $genero, $precio, $sipnosis, $imagenURL, $destacado, $libroID);
-        } else {
-            $stmt->bind_param("sssisssdssii", $titulo, $autor, $editorial, $anioPublicacion, $formato, $idioma, $genero, $precio, $sipnosis, $destacado, $libroID);
-        }
+        $stmt->bind_param("sssisssdssii", $titulo, $autor, $editorial, $anioPublicacion, $formato, $idioma, $genero, $precio, $sipnosis, $imagenURL, $destacado, $libroID);
 
         // Ejecutar la sentencia
         if ($stmt->execute()) {
