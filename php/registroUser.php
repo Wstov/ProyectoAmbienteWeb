@@ -15,7 +15,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Asignar un valor predeterminado para $Rol
     $rol = 1; // Valor predeterminado
-
+    
+    
     // Preparar la sentencia SQL para evitar inyecciones SQL
     if ($stmt = $conn->prepare("INSERT INTO usuarios (Nombre, Apellido, Email, Contrasena, RolID, Edad, Direccion, Telefono) VALUES (?, ?, ?, ?, ?, ?, ?, ?)")) {
         // Asignar el valor de $Rol a un ID, si es necesario

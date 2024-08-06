@@ -108,7 +108,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
   </header>
 
   <main>
-    <section class="py-4 py-xxl-5" lc-helper="background" style="background:linear-gradient(180deg, rgba(19, 16, 34, 0.58) 0%, rgba(19, 16, 34, 0.78) 100%), url(./img/bWdVjVjFZU0.jpg)  center / cover no-repeat;
+    <section class="py-4 py-xxl-5" lc-helper="background" style="background:linear-gradient(180deg, rgba(19, 16, 34, 0.58) 0%, rgba(19, 16, 34, 0.78) 100%), url(../../img/bWdVjVjFZU0.jpg)  center / cover no-repeat;
 ">
 	<div class="container pt-4 py-md-6">
 		<div class="row justify-content-center">
