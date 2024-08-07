@@ -115,12 +115,12 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
 			<div class="col-md-12 col-xxl-6">
 				<div class="lc-block text-light mb-4">
 					<div editable="rich">
-						<h1 class="display-2 fw-bold text-center">The quick brown fox jumps over the lazy dog</h1>
+						<h1 class="display-2 fw-bold text-center">Los libros son como buenos compañeros y añaden gracia a tu personalidad.</h1>
 					</div>
 				</div><!-- /lc-block -->
 				<div class="lc-block mb-5">
 					<div editable="rich">
-						<p class="text-center rfs-9 text-white-50"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et metus id ligula malesuada placerat sit amet quis enim.</p>
+						<p class="text-center rfs-9 text-white-50"> Los buenos libros son demasiado necesarios para darle una sensación de vida nueva.</p>
 					</div>
 				</div><!-- /lc-block -->
 				<div class="lc-block text-center">
@@ -187,12 +187,12 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
             <div class="p-5 lc-block">
                 <div class="lc-block mb-4">
                     <div>
-                        <h2 class="display-1 fw-bold">TíTulo</h2>
+                        <h2 class="display-1 fw-bold">LIBROS DESTACADOS</h2>
                     </div>
                 </div>
                 <div class="lc-block">
                     <div>
-                        <p class="lead">Lorem, ipsum dolor sit amet cons iste minus, minima ducimus! Non fugiat beatae dolore architecto, amet voluptatum delectus.</p>
+                        <p class="lead">Después de seleccionar el mejor libro, podrías crear nuevos momentos..</p>
                     </div>
                 </div>
             </div>
@@ -254,12 +254,12 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
             <div class="p-5 lc-block">
                 <div class="lc-block mb-4">
                     <div>
-                        <h2 class="display-1 fw-bold">TíTulo</h2>
+                        <h2 class="display-1 fw-bold">LIBROS MÁS VENDIDOS</h2>
                     </div>
                 </div>
                 <div class="lc-block">
                     <div>
-                        <p class="lead">Lorem, ipsum dolor sit amet cons iste minus, minima ducimus! Non fugiat beatae dolore architecto, amet voluptatum delectus.</p>
+                        <p class="lead">Los amantes de los libros conocen la importancia de un buen libro. Es incluso más precioso que el diamante.</p>
                     </div>
                 </div>
             </div>
