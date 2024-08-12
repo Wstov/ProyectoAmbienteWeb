@@ -91,7 +91,7 @@ session_start();
           </div>
           <div class="signup-link">
             <p></p>
-            <button type="button">Registrarse</button>
+            <button onclick="window.location.href='../view/registroUsuario.php';" type="button">Registrarse</button>
           </div>
         </form>
       </div>

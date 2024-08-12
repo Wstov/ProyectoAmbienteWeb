@@ -53,9 +53,9 @@ include "./php/config.php";
   <header>
       <nav class="navbar navbar-expand-lg py-3 navbar-light">
         <div class="container">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="./index.php">
             <img
-              src="img/storybound_books_logo_black.png"
+              src="./img/storybound_books_logo_black.png"
               width="130"
               height="130a"
               class="align-middle me-1 img-fluid"
@@ -78,7 +78,7 @@ include "./php/config.php";
           <div class="lc-block collapse navbar-collapse" id="myNavbar3">
             <div lc-helper="shortcode" class="live-shortcode ms-auto">
               <!--  lc_nav_menu -->
-              <ul id="menu-menu-1" class="navbar-nav">
+              <!-- <ul id="menu-menu-1" class="navbar-nav">
                 <li
                   class="menu-item menu-item-type-custom menu-item-object-custom nav-item nav-item-32739"
                 >
@@ -97,7 +97,7 @@ include "./php/config.php";
                     >Agragar Algo</a
                   >
                 </li>
-              </ul>
+              </ul> -->
               <!-- /lc_nav_menu -->
             </div>
             <div class="lc-block ms-auto d-grid gap-2 d-lg-block">
@@ -127,9 +127,9 @@ include "./php/config.php";
           <p class="text-center rfs-9 text-white-50"> Los buenos libros son demasiado necesarios para darle una sensación de vida nueva.</p>
 					</div>
 				</div><!-- /lc-block -->
-				<div class="lc-block text-center">
+				<!-- <div class="lc-block text-center">
 					<a class="btn btn-primary btn-lg" href="#" role="button" lc-helper="button">View Our Projects</a>
-				</div><!-- /lc-block -->
+				</div>/lc-block -->
 			</div><!-- /col -->
 		</div>
 	</div>
@@ -230,9 +230,12 @@ include "./php/config.php";
                                                 <p>₡<?= number_format($row->Precio, 2, ',', '.') ?></p>
                                             </div>
                                         </div>
-                                        <div class="lc-block">
-                                            <a class="btn btn-primary" href="./view/infoLibro.php?LibroID=<?= htmlspecialchars($row->LibroID) ?>" role="button">Button</a>
-                                        </div>
+                                        <a  href="./view/infoLibro.php?LibroID=<?= htmlspecialchars($row->LibroID) ?>" class="button_show_more text-uppercase" style="padding: 6px 80px !important;">
+                                          Ver Más
+                                          <div class="arrow-wrapper" >
+                                            <div class="arrow"></div>
+                                          </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -323,11 +326,10 @@ include "./php/config.php";
               </div>
               <div class="lc-block small">
                 <div editable="rich">
-                  <p>
-                    I am text block. Click edit button to change this text.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                    elit tellus, luctus nec ullamcorper matti pibus leo.
-                  </p>
+                <p>
+                Bienvenido a nuestra librería. Aquí encontrarás una amplia selección de libros de todas las categorías. 
+                Nos apasiona compartir el amor por la lectura con todos nuestros clientes. ¡Explora, descubre y disfruta!
+              </p>
                 </div>
               </div>
               <!-- /lc-block -->
@@ -465,25 +467,12 @@ include "./php/config.php";
             <div class="col-6 small">
               <div class="lc-block">
                 <div editable="rich">
-                  <p>Copyright © My Company 2020</p>
+                  <p>Copyright © Storybound Books 2024</p>
                 </div>
               </div>
               <!-- /lc-block -->
             </div>
-            <div class="col-6 text-end small">
-              <div class="lc-block">
-                <div editable="rich">
-                  <p>
-                    <a class="text-decoration-none" href="#">License Details</a>
-                    -
-                    <a class="text-decoration-none" href="#"
-                      >Terms &amp; Conditions</a
-                    >
-                  </p>
-                </div>
-              </div>
-              <!-- /lc-block -->
-            </div>
+            
           </div>
         </div>
       </section>

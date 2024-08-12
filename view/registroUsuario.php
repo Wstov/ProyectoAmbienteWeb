@@ -38,8 +38,8 @@ session_start();
           </button>
 
           <div class="lc-block collapse navbar-collapse" id="myNavbar3">
-            <div lc-helper="shortcode" class="live-shortcode ms-auto">
-              <!--  lc_nav_menu -->
+            <!-- <div lc-helper="shortcode" class="live-shortcode ms-auto">
+              
               <ul id="menu-menu-1" class="navbar-nav">
                 <li
                   class="menu-item menu-item-type-custom menu-item-object-custom nav-item nav-item-32739"
@@ -60,10 +60,9 @@ session_start();
                   >
                 </li>
               </ul>
-              <!-- /lc_nav_menu -->
-            </div>
+            </div> -->
             <div class="lc-block ms-auto d-grid gap-2 d-lg-block">
-              <a class="btn link-secondary" href="#" role="button" 
+              <a class="btn link-secondary" href="./login.php" role="button" 
                 >Ingresar</a
               >
               <a class="btn btn-primary" href="../view/registroUsuario.php" role="button">Registrarse</a>

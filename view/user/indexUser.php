@@ -2,8 +2,8 @@
 <?php
 session_start();
 include("../../php/config.php");
-include("../../php/extraerUser.php");
-$username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
+// $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -86,7 +86,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <?php echo htmlspecialchars($username); ?>
+                Acciones
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="userDropdown">
                   <li><a class="dropdown-item" href="#">Perfil</a></li>
@@ -123,9 +123,9 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
 						<p class="text-center rfs-9 text-white-50"> Los buenos libros son demasiado necesarios para darle una sensación de vida nueva.</p>
 					</div>
 				</div><!-- /lc-block -->
-				<div class="lc-block text-center">
+				<!-- <div class="lc-block text-center">
 					<a class="btn btn-primary btn-lg" href="#" role="button" lc-helper="button">View Our Projects</a>
-				</div><!-- /lc-block -->
+				</div>/lc-block -->
 			</div><!-- /col -->
 		</div>
 	</div>
@@ -226,9 +226,12 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
                                                 <p>₡<?= number_format($row->Precio, 2, ',', '.') ?></p>
                                             </div>
                                         </div>
-                                        <div class="lc-block">
-                                            <a class="btn btn-primary" href="../infoLibro.php?LibroID=<?= htmlspecialchars($row->LibroID) ?>" role="button">Button</a>
-                                        </div>
+                                        <a  href="./userInfoLibro.php?LibroID=<?= htmlspecialchars($row->LibroID) ?>" class="button_show_more text-uppercase" style="padding: 6px 80px !important;">
+                                          Ver Más
+                                          <div class="arrow-wrapper" >
+                                            <div class="arrow"></div>
+                                          </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -283,7 +286,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
                                 <h5 class="card-title"><?= htmlspecialchars($row->Titulo) ?></h5>
                                 <p class="card-text"><?= htmlspecialchars($row->Autor) ?></p>
                                 <p class="card-text">₡<?= number_format($row->Precio, 2, ',', '.') ?></p>
-                                <a  href="../infoLibro.php?LibroID=<?= htmlspecialchars($row->LibroID) ?>" class="button_show_more text-uppercase">
+                                <a  href="./userInfoLibro.php?LibroID=<?= htmlspecialchars($row->LibroID) ?>" class="button_show_more text-uppercase">
                                     Ver Más
                                     <div class="arrow-wrapper">
                                         <div class="arrow"></div>
@@ -325,9 +328,8 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
               <div class="lc-block small">
                 <div editable="rich">
                   <p>
-                    I am text block. Click edit button to change this text.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                    elit tellus, luctus nec ullamcorper matti pibus leo.
+                  Bienvenido a nuestra librería. Aquí encontrarás una amplia selección de libros de todas las categorías. 
+                  Nos apasiona compartir el amor por la lectura con todos nuestros clientes. ¡Explora, descubre y disfruta!
                   </p>
                 </div>
               </div>
@@ -471,20 +473,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
               </div>
               <!-- /lc-block -->
             </div>
-            <div class="col-6 text-end small">
-              <div class="lc-block">
-                <div editable="rich">
-                  <p>
-                    <a class="text-decoration-none" href="#">License Details</a>
-                    -
-                    <a class="text-decoration-none" href="#"
-                      >Terms &amp; Conditions</a
-                    >
-                  </p>
-                </div>
-              </div>
-              <!-- /lc-block -->
-            </div>
+            
           </div>
         </div>
       </section>

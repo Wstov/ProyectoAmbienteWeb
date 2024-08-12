@@ -1,5 +1,5 @@
 <?php
-include '../php/config.php';
+include '../../php/config.php';
 
 // Fetch the specific book details
 $libroId = $_GET['LibroID'] ?? 0;
@@ -19,72 +19,69 @@ while ($row = $recommendedSql->fetch_object()) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Storybound Books</title>
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="../css/verMasBtn.css">
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../../css/cart.css">
+  <link rel="stylesheet" href="../../css/verMasBtn.css">
+  <title>Storybound Books</title>
 </head>
 <body>
 <header>
-      <nav class="navbar navbar-expand-lg py-3 navbar-light">
-        <div class="container">
-          <a class="navbar-brand" href="../index.php">
-            <img
-              src="../img/storybound_books_logo_black.png"
-              width="130"
-              height="130a"
-              class="align-middle me-1 img-fluid"
-              alt="bookshop logo"
-            />
-          </a>
+    <nav class="navbar navbar-expand-lg py-3 navbar-light">
+      <div class="container">
+        <a class="navbar-brand" href="indexUser.php">
+          <img
+            src="../../img/storybound_books_logo_black.png"
+            width="130"
+            height="130"
+            class="align-middle me-1 img-fluid"
+            alt="bookshop logo"
+          />
+        </a>
 
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#myNavbar3"
-            aria-controls="myNavbar3"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#myNavbar3"
+          aria-controls="myNavbar3"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-          <div class="lc-block collapse navbar-collapse" id="myNavbar3">
-            <div lc-helper="shortcode" class="live-shortcode ms-auto">
-              <!--  lc_nav_menu -->
-              <!-- <ul id="menu-menu-1" class="navbar-nav">
-                <li
-                  class="menu-item menu-item-type-custom menu-item-object-custom nav-item nav-item-32739"
-                >
-                  <a
-                    href="#"
-                    class="nav-link"
-                    >BS5 Page Templates</a
-                  >
-                </li>
-                <li
-                  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home nav-item nav-item-32738"
-                >
-                  <a
-                    href="#"
-                    class="nav-link"
-                    >BS5 Snippets</a
-                  >
-                </li>
-              </ul> -->
-              <!-- /lc_nav_menu -->
-            </div>
-            <div class="lc-block ms-auto d-grid gap-2 d-lg-block">
-              <a class="btn link-secondary" href="./login.php" role="button" 
-                >Ingresar</a
-              >
-              <a class="btn btn-primary" href="../view/registroUsuario.php" role="button">Registrarse</a>
-            </div>
+        <div class="collapse navbar-collapse" id="myNavbar3">
+          <ul id="menu-menu-1" class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a href="#" class="nav-link">Historial de Compras</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center ms-auto">
+
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Acciones
+              </a>
+                <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                  <li><a class="dropdown-item" href="#">Perfil</a></li>
+                  <li><a class="dropdown-item" href="../../php/logout.php">Cerrar sesión</a></li>
+                </ul>
+              </li>
+            </ul>
           </div>
+          <button class="btn-cart me-3">
+          <svg class="icon-cart" viewBox="0 0 24.38 30.52" height="30.52" width="24.38" xmlns="http://www.w3.org/2000/svg">
+            <title>icon-cart</title>
+            <path transform="translate(-3.62 -0.85)" d="M28,27.3,26.24,7.51a.75.75,0,0,0-.76-.69h-3.7a6,6,0,0,0-12,0H6.13a.76.76,0,0,0-.76.69L3.62,27.3v.07a4.29,4.29,0,0,0,4.52,4H23.48a4.29,4.29,0,0,0,4.52-4ZM15.81,2.37a4.47,4.47,0,0,1,4.46,4.45H11.35a4.47,4.47,0,0,1,4.46-4.45Zm7.67,27.48H8.13a2.79,2.79,0,0,1-3-2.45L6.83,8.34h3V11a.76.76,0,0,0,1.52,0V8.34h8.92V11a.76.76,0,0,0,1.52,0V8.34h3L26.48,27.4a2.79,2.79,0,0,1-3,2.44Zm0,0"></path>
+          </svg>
+          <span class="quantity"></span>
+        </button>
         </div>
-      </nav>
-    </header>
-    <main>
+      </div>
+    </nav>
+  </header>
+  <main>
         <section>
             <div class="container">
                 <div class="row align-items-center">
@@ -111,10 +108,10 @@ while ($row = $recommendedSql->fetch_object()) {
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 mb-4">
-                        <img src="../booksImages/<?= htmlspecialchars($showBook->ImagenURL) ?>" class="img-fluid grow-on-hover" alt="Portada del libro" style="width: 100%; height: auto;">
+                        <img src="../../booksImages/<?= htmlspecialchars($showBook->ImagenURL) ?>" class="img-fluid grow-on-hover" alt="Portada del libro" style="width: 100%; height: auto;">
                     </div>
                     <div class="col-md-5">
-                        <form action="user/cart/add-product.php" method="POST">
+                        <form action="../user/cart/add-product.php" method="POST">
                             <input type="hidden" value="<?= htmlspecialchars($showBook->LibroID) ?>" name="idProduct">
                             <input type="hidden" value="<?= htmlspecialchars($showBook->Titulo) ?>" name="nameProduct">
                             <input type="hidden" value="<?= htmlspecialchars($showBook->Precio) ?>" name="price">
@@ -150,10 +147,10 @@ while ($row = $recommendedSql->fetch_object()) {
                         <div class="scroll-container" style="height: 350px; overflow-y: auto;">
                             <?php foreach ($recommendedBooks as $book) { ?>
                                 <div class="zoom">
-                                    <a style="text-decoration: none;" href="./infoLibro.php?LibroID=<?= htmlspecialchars($book->LibroID) ?>">
+                                    <a style="text-decoration: none;" href="./userInfoLibro.php?LibroID=<?= htmlspecialchars($book->LibroID) ?>">
                                         <div class="d-flex align-items-center">
                                             <div class="p-2">
-                                                <img src="../booksImages/<?= htmlspecialchars($book->ImagenURL) ?>" alt="portada del libro" class="img-thumbnail" style="width: 70px; height: auto;">
+                                                <img src="../../booksImages/<?= htmlspecialchars($book->ImagenURL) ?>" alt="portada del libro" class="img-thumbnail" style="width: 70px; height: auto;">
                                             </div>
                                             <div class="p-2">
                                               <h5 class="mb-1 text-secondary"><?= strlen($book->Titulo) > 20 ? htmlspecialchars(substr($book->Titulo, 0, 20)) . '...' : htmlspecialchars($book->Titulo) ?></h5>
@@ -355,3 +352,5 @@ while ($row = $recommendedSql->fetch_object()) {
 <?php
 $conn->close();
 ?>
+</body>
+</html>

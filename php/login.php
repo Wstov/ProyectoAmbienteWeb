@@ -30,11 +30,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       
        
     // Consulta SQL para verificar las credenciales del usuario
-    $consulta = "SELECT * FROM usuarios WHERE Email = '$usuario' AND Contrasena = '$Contrasena_encrypt' ";
+    $consulta = "SELECT Nombre, Apellido, RolID FROM usuarios WHERE Email = '$usuario' AND Contrasena = '$Contrasena_encrypt'";
+    // $consulta = "SELECT * FROM usuarios WHERE Email = '$usuario' AND Contrasena = '$Contrasena_encrypt' ";
     $resultado = mysqli_query($conn, $consulta);
 
     // Verificar si se encontró una fila que coincida con las credenciales
     if ($filas = mysqli_fetch_array($resultado)) {
+        // Guardar nombre y apellido en la sesión
+        $_SESSION['Nombre'] = $filas['Nombre'];
+        $_SESSION['Apellido'] = $filas['Apellido'];
+
         // Verificar el rol del usuario
         if ($filas['RolID'] === '1') {
             header("Location: ../view/user/indexUser.php");
@@ -43,7 +48,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     } else {
         echo "Usuario o contraseña incorrectos";
-       
     }
 }
 ?>

@@ -41,6 +41,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Ejecutar la sentencia
         if ($stmt->execute()) {
+            // Guardar nombre y apellido en la sesión
+            $_SESSION['Nombre'] = $nombre;
+            $_SESSION['Apellido'] = $apellido;
+
+
             header("Location: ../view/user/indexUser.php");
 
             exit();
