@@ -58,6 +58,9 @@ $book = $result->fetch_object();
             display: flex;
             justify-content: center; /* Centra la imagen en su contenedor */
         }
+        .book-info {
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -68,6 +71,16 @@ $book = $result->fetch_object();
                 <img src="../../booksImages/<?= htmlspecialchars($book->ImagenURL) ?>" alt="Portada del libro" class="book-image">
             </div>
             <div class="form-section">
+                <div class="book-info">
+                    <p><strong>Título:</strong> <?= htmlspecialchars($book->Titulo) ?></p>
+                    <p><strong>Autor:</strong> <?= htmlspecialchars($book->Autor) ?></p>
+                    <p><strong>Formato:</strong> <?= htmlspecialchars($book->Formato) ?></p>
+                    <p><strong>Idioma:</strong> <?= htmlspecialchars($book->Idioma) ?></p>
+                    <p><strong>Género:</strong> <?= htmlspecialchars($book->Categoria) ?></p>
+                    <p><strong>Sinopsis:</strong></p>
+                    <p><?= htmlspecialchars($book->Sipnosis) ?></p>
+                    <p><strong>Precio:</strong> ₡<?= number_format($book->Precio, 2, ',', '.') ?></p>
+                </div>
                 <form action="../../php/usuario/alquilarLibro.php" method="POST">
                     <input type="hidden" name="LibroID" value="<?= htmlspecialchars($book->LibroID) ?>">
                     <input type="hidden" name="Precio" value="<?= htmlspecialchars($book->Precio) ?>">
@@ -75,11 +88,6 @@ $book = $result->fetch_object();
                     <div class="mb-3">
                         <label for="FechaDevolucion" class="form-label">Fecha de Devolución</label>
                         <input type="datetime-local" class="form-control" id="FechaDevolucion" name="FechaDevolucion" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <p><strong>Título:</strong> <?= htmlspecialchars($book->Titulo) ?></p>
-                        <p><strong>Precio:</strong> ₡<?= number_format($book->Precio, 2, ',', '.') ?></p>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Confirmar Alquiler</button>
