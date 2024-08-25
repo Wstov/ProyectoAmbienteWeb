@@ -127,7 +127,7 @@ if ($user = mysqli_fetch_array($resultado)) {
                 </tbody>
             </table>
             <div class="text-center mt-3">
-                <a href="editarPerfil.php?UsuarioID=<?php echo htmlspecialchars($user['UsuarioID']); ?>" class="btn btn-primary">Editar Perfil</a>
+                <a href="./editarPerfil.php?UsuarioID=<?php echo htmlspecialchars($user['UsuarioID']); ?>" class="btn btn-primary">Editar Perfil</a>
             </div>
         </div>
     </main>

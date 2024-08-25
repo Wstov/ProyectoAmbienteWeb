@@ -10,6 +10,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../../css/heightIndexAdmin.css">
+    <link rel="stylesheet" href="../../css/stockBtn.css">
     <title>Storybound Books - Administrador</title>
   </head>
   <body>
@@ -55,43 +56,45 @@ session_start();
   </nav>
 </header>
 
-    <main>
+<main>
     <div class="container py-5">
-    <?php
+        <?php
         include "../../php/config.php";
         $sql = $conn->query("SELECT * FROM Libros");
         if ($sql->num_rows > 0) {
         ?>
-    <div class="row">
-    
-      <?php while ($row = $sql->fetch_object()) { ?>
-        <div class="col-xl-3 col-md-6 mb-4">
-        <div class="lc-block bg-white rounded shadow"><img class="responsive-image" src="../../booksImages/<?= htmlspecialchars($row->ImagenURL) ?>" alt="Imagen de <?= htmlspecialchars($row->Titulo) ?>" sizes="(max-width: 1080px) 100vw, 1080px" width="100%" height="459" loading="lazy">
-            <div class="lc-block p-4">
-                <div editable="rich">
-                    <h3><?= htmlspecialchars($row->Titulo) ?></h3>
-                    <p><?= htmlspecialchars($row->Autor) ?></p>
-                    <p>₡<?= number_format($row->Precio, 2, ',', '.') ?></p>
+        <div class="row">
+            <?php while ($row = $sql->fetch_object()) { ?>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="../../booksImages/<?= htmlspecialchars($row->ImagenURL) ?>" 
+                         alt="Imagen de <?= htmlspecialchars($row->Titulo) ?>" 
+                         class="card-img-top img-fluid" 
+                         style="height: 450px; object-fit: cover;">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title"><?= htmlspecialchars($row->Titulo) ?></h5>
+                        <p class="card-text text-muted"><?= htmlspecialchars($row->Autor) ?></p>
+                        <p class="card-text text-success fw-bold">₡<?= number_format($row->Precio, 2, ',', '.') ?></p>
+                        <div class="mt-auto">
+                        <button class="addBtn w-100" 
+                                    onclick="window.location.href='./agregarStock.php?LibroID=<?= $row->LibroID ?>'">
+                                Agregar Stock
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-          </div>
-          </div>
-        <?php } ?>
-    
-</div>
-<?php
+            <?php } ?>
+        </div>
+        <?php
         } else {
             echo '<p>No hay libros disponibles.</p>';
         }
         $conn->close();
         ?>
+    </div>
+</main>
 
-</div>
-
-
-    
-
-    </main>
     <footer>
 
         <div

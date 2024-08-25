@@ -34,6 +34,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $conn->close();
                 exit();
             }
+
+            // Actualizar la cantidad en Stock y unidades salientes
+            $sqlUpdateStock = "UPDATE Stock SET Cantidad = Cantidad - ?, unitOut = unitOut + ? WHERE LibroID = ?";
+            $stmtUpdateStock = $conn->prepare($sqlUpdateStock);
+            $stmtUpdateStock->bind_param("iii", $item['Cantidad'], $item['Cantidad'], $item['LibroID']);
+
+            if (!$stmtUpdateStock->execute()) {
+                echo "Error al actualizar el stock: " . $stmtUpdateStock->error;
+                $stmtUpdateStock->close();
+                $stmtVenta->close();
+                $stmt->close();
+                $conn->close();
+                exit();
+            }
+
+            $stmtUpdateStock->close();
         }
 
         $stmtVenta->close();
