@@ -2,31 +2,28 @@
 include("../config.php");
 session_start();
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtener los datos del formulario
-    $rolID = $_POST['RolID'];
-    $usuarioID = $_POST['UsuarioID'];
+// Obtener el ID del usuario desde la URL
+$userId = isset($_GET['UsuarioID']) ? intval($_GET['UsuarioID']) : 0;
 
-    // Preparar la sentencia SQL para evitar inyecciones SQL
-    $stmt = $conn->prepare("UPDATE usuarios SET RolID=? WHERE UsuarioID=?");
+// Consultar los datos del usuario
+$sql = "SELECT Nombre, Apellido, Email, Edad, Direccion, Telefono FROM usuarios WHERE UsuarioID = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $userId);
+$stmt->execute();
+$result = $stmt->get_result();
 
-    // Vincular parámetros
-    $stmt->bind_param("ii", $rolID, $usuarioID);
-
-    // Ejecutar la sentencia
-    if ($stmt->execute()) {
-        header("Location: ../../view/admin/adminUsuarios.php");
-        exit();
-    } else {
-        echo "Error al ejecutar la sentencia: " . $stmt->error;
-    }
-
-    // Cerrar la sentencia
-    $stmt->close();
-
-    // Cerrar la conexión
-    $conn->close();
+// Verificar si el usuario existe
+if ($result->num_rows > 0) {
+    $user = $result->fetch_assoc();
 } else {
-    echo "Método de solicitud no válido";
+    echo "Usuario no encontrado";
+    exit();
 }
+
+// Cerrar la conexión
+$stmt->close();
+$conn->close();
+
+// Incluir el archivo de vista
+include 'perfil_view.php';
 ?>

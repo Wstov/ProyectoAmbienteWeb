@@ -2,7 +2,6 @@
 <?php
 session_start();
 include("../../php/config.php");
-// $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Invitado';
 
 ?>
 <!DOCTYPE html>
@@ -78,7 +77,7 @@ include("../../php/config.php");
         <div class="collapse navbar-collapse" id="myNavbar3">
           <ul id="menu-menu-1" class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a href="#" class="nav-link">Historial de Compras</a>
+              <a href="./historialUser.php" class="nav-link">Historial de Compras</a>
             </li>
           </ul>
           <div class="d-flex align-items-center ms-auto">
@@ -89,19 +88,19 @@ include("../../php/config.php");
                 Acciones
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                  <li><a class="dropdown-item" href="#">Perfil</a></li>
-                  <li><a class="dropdown-item" href="../../php/logout.php">Cerrar sesión</a></li>
+                <li><a class="dropdown-item" href="./usuarioDatos.php">Perfil</a></li>
+                <li><a class="dropdown-item" href="../../php/logout.php">Cerrar sesión</a></li>
                 </ul>
               </li>
             </ul>
           </div>
-          <button class="btn-cart me-3">
+          <a class="btn-cart me-3" href="./carrito.php">
           <svg class="icon-cart" viewBox="0 0 24.38 30.52" height="30.52" width="24.38" xmlns="http://www.w3.org/2000/svg">
             <title>icon-cart</title>
             <path transform="translate(-3.62 -0.85)" d="M28,27.3,26.24,7.51a.75.75,0,0,0-.76-.69h-3.7a6,6,0,0,0-12,0H6.13a.76.76,0,0,0-.76.69L3.62,27.3v.07a4.29,4.29,0,0,0,4.52,4H23.48a4.29,4.29,0,0,0,4.52-4ZM15.81,2.37a4.47,4.47,0,0,1,4.46,4.45H11.35a4.47,4.47,0,0,1,4.46-4.45Zm7.67,27.48H8.13a2.79,2.79,0,0,1-3-2.45L6.83,8.34h3V11a.76.76,0,0,0,1.52,0V8.34h8.92V11a.76.76,0,0,0,1.52,0V8.34h3L26.48,27.4a2.79,2.79,0,0,1-3,2.44Zm0,0"></path>
           </svg>
           <span class="quantity"></span>
-        </button>
+        </a>
         </div>
       </div>
     </nav>
@@ -117,16 +116,14 @@ include("../../php/config.php");
 					<div editable="rich">
 						<h1 class="display-2 fw-bold text-center">Los libros son como buenos compañeros y añaden gracia a tu personalidad.</h1>
 					</div>
-				</div><!-- /lc-block -->
+				</div>
 				<div class="lc-block mb-5">
 					<div editable="rich">
 						<p class="text-center rfs-9 text-white-50"> Los buenos libros son demasiado necesarios para darle una sensación de vida nueva.</p>
 					</div>
-				</div><!-- /lc-block -->
-				<!-- <div class="lc-block text-center">
-					<a class="btn btn-primary btn-lg" href="#" role="button" lc-helper="button">View Our Projects</a>
-				</div>/lc-block -->
-			</div><!-- /col -->
+				</div>
+
+			</div>
 		</div>
 	</div>
 	<div class="container-fluid py-6" style=" ">
@@ -174,12 +171,7 @@ include("../../php/config.php");
 
 				</div>
 			</div>
-			<!-- <div class="col-md-4 text-center mb-3">
-				<div class="lc-block"><a class="btn btn-lg btn-link text-decoration-none text-white" href="" role="button">Explore projects <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" class="ms-2" viewBox="0 0 16 16">
-							<path d="m11.798 8.271-3.182 1.97c-.27.166-.616-.036-.616-.372V9.1s-2.571-.3-4 2.4c.571-4.8 3.143-4.8 4-4.8v-.769c0-.336.346-.538.616-.371l3.182 1.969c.27.166.27.576 0 .742z"></path>
-							<path d="m.5 3 .04.87a1.99 1.99 0 0 0-.342 1.311l.637 7A2 2 0 0 0 2.826 14h10.348a2 2 0 0 0 1.991-1.819l.637-7A2 2 0 0 0 13.81 3H9.828a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 6.172 1H2.5a2 2 0 0 0-2 2zm.694 2.09A1 1 0 0 1 2.19 4h11.62a1 1 0 0 1 .996 1.09l-.636 7a1 1 0 0 1-.996.91H2.826a1 1 0 0 1-.995-.91l-.637-7zM6.172 2a1 1 0 0 1 .707.293L7.586 3H2.19c-.24 0-.47.042-.683.12L1.5 2.98a1 1 0 0 1 1-.98h3.672z"></path>
-						</svg></a></div>
-			</div> -->
+
 		</div>
 	</div>
 </section>

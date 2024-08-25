@@ -74,7 +74,7 @@ session_start();
 
   <section class="bg-light py-5">
     <div class="p-5 lc-block shadow rounded-3 col-xl-10 offset-xl-1">
-        <h3 class="card-title text-center mb-5 font-weight-bold fs-3">Regístrate llenando los siguientes espacios:</h3>
+        <h3 class="card-title text-center mb-5 font-weight-bold fs-3">Regístrate para acceder a nuestros servicios:</h3>
 
         <form class="form-horizontal" id="formulario" method="POST" action="../php/registroUser.php" enctype="multipart/form-data">
 

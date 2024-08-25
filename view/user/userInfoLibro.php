@@ -22,9 +22,12 @@ while ($row = $recommendedSql->fetch_object()) {
     <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css" />
   <link rel="stylesheet" href="../../css/cart.css">
   <link rel="stylesheet" href="../../css/verMasBtn.css">
+
+  <link rel="stylesheet" href="../../css/alquilerBotton.css">
   <title>Storybound Books</title>
 </head>
 <body>
+  
 <header>
     <nav class="navbar navbar-expand-lg py-3 navbar-light">
       <div class="container">
@@ -53,30 +56,30 @@ while ($row = $recommendedSql->fetch_object()) {
         <div class="collapse navbar-collapse" id="myNavbar3">
           <ul id="menu-menu-1" class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a href="#" class="nav-link">Historial de Compras</a>
+              <a href="./historialUser.php" class="nav-link">Historial de Compras</a>
             </li>
           </ul>
           <div class="d-flex align-items-center ms-auto">
 
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Acciones
-              </a>
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Acciones
+                </a>
                 <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                  <li><a class="dropdown-item" href="#">Perfil</a></li>
+                <li><a class="dropdown-item" href="./usuarioDatos.php">Perfil</a></li>
                   <li><a class="dropdown-item" href="../../php/logout.php">Cerrar sesión</a></li>
                 </ul>
               </li>
             </ul>
           </div>
-          <button class="btn-cart me-3">
+          <a class="btn-cart me-3" href="./carrito.php">
           <svg class="icon-cart" viewBox="0 0 24.38 30.52" height="30.52" width="24.38" xmlns="http://www.w3.org/2000/svg">
             <title>icon-cart</title>
             <path transform="translate(-3.62 -0.85)" d="M28,27.3,26.24,7.51a.75.75,0,0,0-.76-.69h-3.7a6,6,0,0,0-12,0H6.13a.76.76,0,0,0-.76.69L3.62,27.3v.07a4.29,4.29,0,0,0,4.52,4H23.48a4.29,4.29,0,0,0,4.52-4ZM15.81,2.37a4.47,4.47,0,0,1,4.46,4.45H11.35a4.47,4.47,0,0,1,4.46-4.45Zm7.67,27.48H8.13a2.79,2.79,0,0,1-3-2.45L6.83,8.34h3V11a.76.76,0,0,0,1.52,0V8.34h8.92V11a.76.76,0,0,0,1.52,0V8.34h3L26.48,27.4a2.79,2.79,0,0,1-3,2.44Zm0,0"></path>
           </svg>
           <span class="quantity"></span>
-        </button>
+        </a>
         </div>
       </div>
     </nav>
@@ -84,34 +87,12 @@ while ($row = $recommendedSql->fetch_object()) {
   <main>
         <section>
             <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-12 col-md-6 col-xl-7 mb-lg-0 py-5 py-md-6">
-                        <div class="lc-block mb-3 mb-md-5 lh-1">
-                            <div>
-                                <h1 class="text-primary fw-bolder display-5">Storybound Books</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-xl-5">
-                        <div class="lc-block px-md-4 px-lg-5 lh-lg">
-                            <div>
-                                <p class="rfs-7">Bienvenido a nuestra librería. Aquí encontrarás una amplia selección de libros de todas las categorías. 
-                                Nos apasiona compartir el amor por la lectura con todos nuestros clientes. ¡Explora, descubre y disfruta!</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="container">
                 <div class="row">
                     <div class="col-md-4 mb-4">
                         <img src="../../booksImages/<?= htmlspecialchars($showBook->ImagenURL) ?>" class="img-fluid grow-on-hover" alt="Portada del libro" style="width: 100%; height: auto;">
                     </div>
                     <div class="col-md-5">
-                        <form action="../user/cart/add-product.php" method="POST">
+                        <form action="../../php/usuario/agregaCarrito.php" method="POST">
                             <input type="hidden" value="<?= htmlspecialchars($showBook->LibroID) ?>" name="idProduct">
                             <input type="hidden" value="<?= htmlspecialchars($showBook->Titulo) ?>" name="nameProduct">
                             <input type="hidden" value="<?= htmlspecialchars($showBook->Precio) ?>" name="price">
@@ -131,12 +112,31 @@ while ($row = $recommendedSql->fetch_object()) {
                                 </div>
                             </div>
 
-                            <button class="CartBtn">
+      <!-- Contenedor para alinear los botones -->
+                            <div class="d-flex justify-content-start align-items-center">
+        <!-- Botón Agregar al Carrito -->
+                              <button class="CartBtn me-3">
                                 <span class="IconContainer"> 
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512" fill="#fff" class="icon"><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"></path></svg>
+                                  <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512" fill="#fff" class="icon">
+                                    <path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"></path>
+                                  </svg>
                                 </span>
                                 <p class="text_buy">Agregar al Carrito</p>
-                            </button>
+                              </button>
+
+                            <!-- Botón Alquilar Libro -->
+                              <a style="--clr: #1c1c1c" class="button" href="#">
+                                <span class="button__icon-wrapper">
+                                  <svg width="10" class="button__icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 15">
+                                    <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
+                                  </svg>
+                                  <svg class="button__icon-svg  button__icon-svg--copy" xmlns="http://www.w3.org/2000/svg" width="10" fill="none" viewBox="0 0 14 15">
+                                    <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
+                                  </svg>
+                                </span>
+                                Alquilar Libro
+                              </a>
+                            </div>
                         </form>
                     </div>
                     <div class="col-md-3">
@@ -345,7 +345,7 @@ while ($row = $recommendedSql->fetch_object()) {
         </div>
       </section>
     </footer>
-	<script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
 
