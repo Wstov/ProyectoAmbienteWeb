@@ -8,35 +8,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $libroID = $_POST['LibroID'];
         $fechaDevolucion = $_POST['FechaDevolucion'];
         $precio = $_POST['Precio'];
-        $total = $precio; // Puedes calcular el total basado en el número de días o alguna otra lógica
+        $total = $precio; // Puedes ajustar el cálculo del total según sea necesario
 
-        // Insertar el alquiler en la base de datos
-        $sql = "INSERT INTO Alquileres (UsuarioID, LibroID, FechaAlquiler, FechaDevolucion, Total) VALUES (?, ?, NOW(), ?, ?)";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("iisd", $usuarioID, $libroID, $fechaDevolucion, $total);
+        // Verificar el stock disponible
+        $sqlCheckStock = "SELECT Cantidad FROM Stock WHERE LibroID = ?";
+        $stmtCheckStock = $conn->prepare($sqlCheckStock);
+        $stmtCheckStock->bind_param("i", $libroID);
+        $stmtCheckStock->execute();
+        $result = $stmtCheckStock->get_result();
+        $stock = $result->fetch_object();
 
-        if ($stmt->execute()) {
-            // Actualizar el stock
-            $sqlUpdateStock = "UPDATE Stock SET Cantidad = Cantidad - 1, unitOut = unitOut + 1 WHERE LibroID = ?";
-            $stmtUpdateStock = $conn->prepare($sqlUpdateStock);
-            $stmtUpdateStock->bind_param("i", $libroID);
+        if ($stock && $stock->Cantidad > 0) {
+            // Insertar el alquiler en la base de datos
+            $sqlInsertAlquiler = "INSERT INTO Alquileres (UsuarioID, LibroID, FechaAlquiler, FechaDevolucion, Total) VALUES (?, ?, NOW(), ?, ?)";
+            $stmtInsertAlquiler = $conn->prepare($sqlInsertAlquiler);
+            $stmtInsertAlquiler->bind_param("iisd", $usuarioID, $libroID, $fechaDevolucion, $total);
 
-            if ($stmtUpdateStock->execute()) {
-                header("Location: ../../view/user/confirmarAlquiler.php");
-                exit();
+            if ($stmtInsertAlquiler->execute()) {
+                // Actualizar el stock
+                $sqlUpdateStock = "UPDATE Stock SET Cantidad = Cantidad - 1, unitOut = unitOut + 1 WHERE LibroID = ?";
+                $stmtUpdateStock = $conn->prepare($sqlUpdateStock);
+                $stmtUpdateStock->bind_param("i", $libroID);
+
+                if ($stmtUpdateStock->execute()) {
+                    header("Location: ../../view/user/indexUser.php");
+                    exit();
+                } else {
+                    echo "Error al actualizar el stock: " . $stmtUpdateStock->error;
+                }
+
+                $stmtUpdateStock->close();
             } else {
-                echo "Error al actualizar el stock: " . $stmtUpdateStock->error;
+                echo "Error al registrar el alquiler: " . $stmtInsertAlquiler->error;
             }
 
-            $stmtUpdateStock->close();
+            $stmtInsertAlquiler->close();
         } else {
-            echo "Error al registrar el alquiler: " . $stmt->error;
+            echo "No hay stock disponible para este libro.";
         }
 
-        $stmt->close();
+        $stmtCheckStock->close();
         $conn->close();
     } else {
         echo "Usuario no autenticado.";
     }
 }
-?>

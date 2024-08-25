@@ -136,8 +136,8 @@ if ($libroID) {
             <div class="col-md-4">
               <div class="form-group">
                 <label for="imagenURL" class="form-label">Subir Imagen:</label>
-                <input class="form-control" type="file" id="imagenURL" name="imagenURL"/>
-                <input type="hidden" name="currentImagenURL" value="<?php echo $libro['ImagenURL']; ?>">
+                <input class="form-control" type="file" id="imagenURL" name="imagenURL" />
+                <input type="hidden" name="currentImagenURL" value="../../booksImages/<?php echo $libro['ImagenURL']; ?>">
               </div>
             </div>
 

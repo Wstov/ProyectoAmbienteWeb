@@ -24,6 +24,10 @@ if ($result->num_rows === 0) {
 }
 
 $book = $result->fetch_object();
+
+// Limitar la longitud de la sinopsis
+$sinopsisLimit = 300; // Limite de caracteres
+$truncatedSinopsis = strlen($book->Sipnosis) > $sinopsisLimit ? substr($book->Sipnosis, 0, $sinopsisLimit) . '...' : $book->Sipnosis;
 ?>
 
 <!DOCTYPE html>
@@ -78,10 +82,13 @@ $book = $result->fetch_object();
                     <p><strong>Idioma:</strong> <?= htmlspecialchars($book->Idioma) ?></p>
                     <p><strong>Género:</strong> <?= htmlspecialchars($book->Categoria) ?></p>
                     <p><strong>Sinopsis:</strong></p>
-                    <p><?= htmlspecialchars($book->Sipnosis) ?></p>
-                    <p><strong>Precio:</strong> ₡<?= number_format($book->Precio, 2, ',', '.') ?></p>
+                    <p><?= htmlspecialchars($truncatedSinopsis) ?></p>
+                    <?php if (strlen($book->Sipnosis) > $sinopsisLimit): ?>
+                        <!-- <a href="#" class="btn btn-link" onclick="alert('Aquí puedes mostrar la sinopsis completa.')">Leer más</a> -->
+                    <?php endif; ?>
+                    <p><strong>Precio:</strong> ₡3.000,00</p>
                 </div>
-                <form action="../../php/usuario/alquilarLibro.php" method="POST">
+                <form action="../../php/usuario/procesarAlquiler.php" method="POST">
                     <input type="hidden" name="LibroID" value="<?= htmlspecialchars($book->LibroID) ?>">
                     <input type="hidden" name="Precio" value="<?= htmlspecialchars($book->Precio) ?>">
 
@@ -91,7 +98,7 @@ $book = $result->fetch_object();
                     </div>
 
                     <button type="submit" class="btn btn-primary">Confirmar Alquiler</button>
-                    <a href="../view/userInfoLibro.php?LibroID=<?= htmlspecialchars($book->LibroID) ?>" class="btn btn-secondary">Cancelar</a>
+                    <a href="./indexUser.php?LibroID=<?= htmlspecialchars($book->LibroID) ?>" class="btn btn-secondary">Cancelar</a>
                 </form>
             </div>
         </div>
