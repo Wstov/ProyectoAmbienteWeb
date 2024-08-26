@@ -22,6 +22,7 @@ session_start();
     }
   </style>
   <body>
+  
     <div class="container">
       <div class="form-container">
         <h1>Bienvenid@s</h1>
@@ -96,9 +97,4 @@ session_start();
         </form>
       </div>
     </div>
-    <!-- <script
-      src="https://kit.fontawesome.com/your-font-awesome-kit-id.js"
-      crossorigin="anonymous"
-    ></script> -->
-  </body>
-</html>
+    

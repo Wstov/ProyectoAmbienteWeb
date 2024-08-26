@@ -89,7 +89,7 @@ if ($user = mysqli_fetch_array($resultado)) {
       </div>
     </nav>
   </header>
-    <main>
+    <main style="height: 60vh">
         <div class="container mt-5">
             <h1 class="mb-4">Perfil del Usuario</h1>
             <table class="table table-bordered">

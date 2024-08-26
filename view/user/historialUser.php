@@ -92,7 +92,7 @@ $conn->close();
       </div>
     </nav>
 </header>
-<main>
+<main style="height: 60vh">
     <div class="container mt-5">
         <h2 class="mb-4">Historial de Ventas</h2>
         <?php if (!empty($ventas)): ?>

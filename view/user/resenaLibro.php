@@ -18,8 +18,9 @@ $libroId = $_GET['LibroID'] ?? null;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reseña del Libro</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/calificacion.css">
+    <link rel="stylesheet" href="../../css/cart.css">
 </head>
 
 <body>
@@ -81,7 +82,7 @@ $libroId = $_GET['LibroID'] ?? null;
   </header>
 
   
-    <div class="container mt-5">
+    <div class="container mt-5" style="height: 60vh">
         <h2>Dar Reseña</h2>
         <form action="../../php/usuario/procesarResena.php" method="POST">
             <input type="hidden" name="LibroID" value="<?php echo htmlspecialchars($libroId); ?>">
@@ -304,7 +305,8 @@ $libroId = $_GET['LibroID'] ?? null;
       </section>
     </footer>
     
-    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 
 </body>
 </html>

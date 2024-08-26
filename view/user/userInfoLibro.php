@@ -85,7 +85,7 @@ while ($row = $recommendedSql->fetch_object()) {
     </nav>
   </header>
   <main>
-        <section>
+        <section class="mt-5">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 mb-4">

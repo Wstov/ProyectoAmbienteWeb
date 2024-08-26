@@ -106,7 +106,7 @@ $stmt->close();
     </nav>
 </header>
 
-<section class="bg-light">
+<section class="bg-light" style="height: 60vh">
     <div class="container">
         <div class="p-1">
             <div class="mb-4">

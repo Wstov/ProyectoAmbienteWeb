@@ -38,29 +38,7 @@ session_start();
           </button>
 
           <div class="lc-block collapse navbar-collapse" id="myNavbar3">
-            <!-- <div lc-helper="shortcode" class="live-shortcode ms-auto">
-              
-              <ul id="menu-menu-1" class="navbar-nav">
-                <li
-                  class="menu-item menu-item-type-custom menu-item-object-custom nav-item nav-item-32739"
-                >
-                  <a
-                    href="https://library.livecanvas.com/starters"
-                    class="nav-link"
-                    >BS5 Page Templates</a
-                  >
-                </li>
-                <li
-                  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home nav-item nav-item-32738"
-                >
-                  <a
-                    href="https://library.livecanvas.com/sections/"
-                    class="nav-link"
-                    >BS5 Snippets</a
-                  >
-                </li>
-              </ul>
-            </div> -->
+
             <div class="lc-block ms-auto d-grid gap-2 d-lg-block">
               <a class="btn link-secondary" href="./login.php" role="button" 
                 >Ingresar</a
@@ -73,7 +51,7 @@ session_start();
     </header>
 
   <section class="bg-light py-5">
-    <div class="p-5 lc-block shadow rounded-3 col-xl-10 offset-xl-1">
+    <div class="p-5 lc-block shadow rounded-3 col-xl-6 offset-xl-3">
         <h3 class="card-title text-center mb-5 font-weight-bold fs-3">Regístrate para acceder a nuestros servicios:</h3>
 
         <form class="form-horizontal" id="formulario" method="POST" action="../php/registroUser.php" enctype="multipart/form-data">
