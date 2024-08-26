@@ -236,11 +236,11 @@ session_start();
                 <div editable="rich">
                   <p>Tutorial</p>
                   <p>
-                    Resources
+                    Recursos
                     <br />
                   </p>
                   <p>Docs</p>
-                  <p>Example</p>
+                 <!--  <p>Example</p> -->
                 </div>
               </div>
               <!-- /lc-block -->
@@ -254,31 +254,31 @@ session_start();
               <!-- /lc-block -->
               <div class="lc-block small">
                 <div editable="rich">
-                  <p>Story</p>
-                  <p>Work with us</p>
+                  <p>Historia</p>
+                  <p>Tranbajar con nosotros</p>
                   <p>Blog</p>
-                  <p>News</p>
+                 <!--  <p>News</p> -->
                 </div>
               </div>
               <!-- /lc-block -->
             </div>
-            <div class="col-lg-2 offset-lg-1">
+            <!-- <div class="col-lg-2 offset-lg-1">
               <div class="lc-block mb-4">
                 <div editable="rich">
                   <h4>Downloads</h4>
                 </div>
-              </div>
+              </div> -->
               <!-- /lc-block -->
-              <div class="lc-block small">
+           <!--    <div class="lc-block small">
                 <div editable="rich">
                   <p>Vertex 1.2</p>
                   <p>Templates</p>
                   <p>Sounds</p>
                   <p>Gradients</p>
                 </div>
-              </div>
+              </div> -->
               <!-- /lc-block -->
-            </div>
+            </div> 
           </div>
         </div>
         <div class="py-5 container">

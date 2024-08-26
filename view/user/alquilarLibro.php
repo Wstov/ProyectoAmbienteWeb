@@ -32,12 +32,14 @@ $truncatedSinopsis = strlen($book->Sipnosis) > $sinopsisLimit ? substr($book->Si
 
 <!DOCTYPE html>
 <html lang="es">
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/styles.css"> <!-- Incluye tu archivo CSS para estilos personalizados -->
     <title>Alquilar Libro</title>
+    
     <style>
         .book-image {
             max-width: 100%; /* Ajusta para que la imagen ocupe todo el ancho disponible */
@@ -67,7 +69,11 @@ $truncatedSinopsis = strlen($book->Sipnosis) > $sinopsisLimit ? substr($book->Si
         }
     </style>
 </head>
+
+
 <body>
+
+
     <div class="container">
         <h1 class="mb-4">Alquilar Libro</h1>
         <div class="form-container">
@@ -102,7 +108,13 @@ $truncatedSinopsis = strlen($book->Sipnosis) > $sinopsisLimit ? substr($book->Si
                 </form>
             </div>
         </div>
+        
     </div>
+
+       
+   
     <script src="../../bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    
 </body>
 </html>
